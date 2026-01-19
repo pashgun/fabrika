@@ -7,13 +7,13 @@
 MVP фокус:
 - ✅ **Liquid Glass Design** — главная дифференциация от Anki
 - ✅ **FSRS Algorithm** — modern spaced repetition
+- ✅ **Interactive Widget** — killer feature, никто не имеет
 - ✅ **Core Flashcard Experience** — CRUD + Review
 - ✅ **Onboarding** — показать ценность за 30 секунд
 - ✅ **Paywall** — monetization через Adapty
 
 **Откладываем на v1.1**:
 - 🔮 AI Auto-Creation (OCR → Card) — premium feature позже
-- 🔮 Interactive Widget — сложная фича, не критична для validation
 - 🔮 Statistics Dashboard — nice-to-have
 
 **Цель MVP**: Доказать что users хотят "beautiful Anki" и готовы платить.
@@ -189,11 +189,11 @@ class Deck {
   - **Yearly**: $39.99/year (save 33%)
 - Features list:
   - ✅ Unlimited decks & cards
-  - ✅ FSRS spaced repetition
-  - ✅ Liquid Glass design
-  - ✅ Cloud sync (coming soon)
+  - ✅ FSRS spaced repetition algorithm
+  - ✅ Liquid Glass design (exclusive)
+  - ✅ Interactive Home Screen widget
+  - 🔮 Cloud sync across devices (coming soon)
   - 🔮 AI auto-creation (coming soon)
-  - 🔮 Interactive widget (coming soon)
 
 **Implementation**:
 ```swift
@@ -249,6 +249,77 @@ if !Adapty.shared.hasActiveSubscription() {
 
 ---
 
+#### 8. **Interactive Widget (iOS 17+)** ⭐⭐⭐
+**Why MVP**: **Killer feature** — никто из конкурентов не имеет interactive review widget. Unique differentiation.
+
+**Scope**:
+- Home Screen widget для quick reviews
+- Small/Medium/Large sizes
+- Show due card (front side)
+- Tap to flip → show back (via App Intent)
+- Easy/Hard buttons → rate card and show next (via App Intents)
+- Live progress: "5 cards remaining"
+
+**Implementation**:
+- WidgetKit framework
+- App Intents для interactivity
+- AppGroupSharedContainer для shared data между app и widget
+- Timeline provider для widget updates
+
+**Reference**:
+- [chockenberry/Intentional](https://github.com/chockenberry/Intentional) — interactive widget best practices
+- [pawello2222/WidgetExamples](https://github.com/pawello2222/WidgetExamples) — WidgetKit patterns
+
+**Widget Design**:
+- **Small**: 1 due card (front text) + tap-to-flip hint
+- **Medium**: Card + progress bar + Easy/Hard buttons
+- **Large**: Card (larger text) + next cards preview
+
+**App Intents**:
+```swift
+struct FlipCardIntent: AppIntent {
+    static var title: LocalizedStringResource = "Flip Card"
+
+    func perform() async throws -> some IntentResult {
+        // Flip card in widget state
+        return .result()
+    }
+}
+
+struct RateCardIntent: AppIntent {
+    static var title: LocalizedStringResource = "Rate Card"
+
+    @Parameter(title: "Rating")
+    var rating: Int  // 1=Again, 2=Hard, 4=Easy
+
+    func perform() async throws -> some IntentResult {
+        // Update FSRS, show next card
+        return .result()
+    }
+}
+```
+
+**Technical Challenges**:
+- Widget memory limits (50MB для extension)
+- Shared data через AppGroup (Core Data container или shared UserDefaults)
+- Timeline updates (use push notifications или background refresh)
+
+**Out of MVP**:
+- ❌ Lock Screen widget (focus на Home Screen)
+- ❌ StandBy widget (iOS 17+ feature, можем add если время)
+- ❌ Multiple widget configurations (один default configuration)
+
+**Acceptance Criteria**:
+- [ ] Widget shows due card correctly
+- [ ] Tap to flip works (AppIntent triggered)
+- [ ] Easy/Hard buttons update FSRS and show next card
+- [ ] Widget refreshes automatically after review
+- [ ] AppGroup shared container works
+- [ ] All 3 sizes (Small/Medium/Large) работают
+- [ ] Widget handles "no due cards" state ("All done! 🎉")
+
+---
+
 ### SHOULD HAVE (If Time Permits)
 
 #### 1. **Search & Filter**
@@ -285,15 +356,6 @@ if !Adapty.shared.hasActiveSubscription() {
 **Strategy**: Add as **premium feature** в v1.1 после validation core product.
 - "Upgrade to Pro for AI auto-creation"
 - Отдельный tier: ZenCards Pro+ ($9.99/mo)
-
-#### ❌ Interactive Widget
-**Why Not MVP**:
-- Complexity: App Intents, WidgetKit, shared data
-- Testing burden: iOS 17/18 compatibility
-- Not critical для core value prop
-
-**Strategy**: Add в v1.1 как major feature update.
-- Marketing: "Now review from your Home Screen!"
 
 #### ❌ Statistics Dashboard
 **Why Not MVP**:
@@ -363,9 +425,8 @@ if !Adapty.shared.hasActiveSubscription() {
 ## MVP Technical Stack
 
 ### Platform
-- **iOS 17.0+** (lower than original 17.0 для App Intents, since no widget)
-  - Actually: можем support iOS 16.0+ для MVP (no App Intents needed)
-  - Decision: Stay iOS 17.0+ для future-proofing
+- **iOS 17.0+** (required для App Intents в widget)
+  - Interactive widgets требуют iOS 17.0+ (App Intents API)
 - **iPhone only** (no iPad для MVP)
 - **Dark Mode only** (Light Mode complexity removed)
 
@@ -374,12 +435,13 @@ if !Adapty.shared.hasActiveSubscription() {
 - **SwiftData** — local persistence
 - **FSRS**: `open-spaced-repetition/swift-fsrs` (v5.0.0)
 - **Adapty**: `AdaptySDK` + `AdaptyUI` для paywall
+- **WidgetKit** — interactive Home Screen widget
+- **App Intents** — widget interactivity (flip, rate actions)
 - **AVFoundation**: TTS pronunciation (AVSpeechSynthesizer)
 - **UserNotifications**: daily reminders
 
 ### NOT Using in MVP
 - ❌ Vision framework (no OCR)
-- ❌ WidgetKit / App Intents (no widget)
 - ❌ CloudKit (no sync)
 - ❌ Swift Charts (no advanced stats)
 - ❌ LLM API (no AI)
@@ -488,10 +550,11 @@ class ReviewRecord {
   3. Card List (empty state + populated)
   4. Card Create/Edit
   5. Review Session (front + back states)
-  6. Settings
+  6. Interactive Widget (Small/Medium/Large sizes)
+  7. Settings
 - Accessibility audit (VoiceOver, Dynamic Type, contrast)
 
-**Timeline**: 3-5 days
+**Timeline**: 4-6 days (widget design adds 1 day)
 
 ### Phase 3: Swift Developer (Implementation)
 **Deliverables**:
@@ -500,29 +563,33 @@ class ReviewRecord {
 - All screens implementation
 - Adapty integration
 - Onboarding flow
+- Interactive Widget (WidgetKit + App Intents)
+- AppGroup shared container
 - TTS pronunciation
 
-**Timeline**: 10-14 days
+**Timeline**: 12-16 days (widget adds 2-3 days)
 
 ### Phase 4: QA & Testing
 **Deliverables**:
 - Unit tests для FSRS logic
+- Widget testing (AppIntents, Timeline, memory limits)
 - UI tests для core flows
 - Manual testing (iPhone 12/13/14/15)
 - TestFlight beta (10-20 testers)
 
-**Timeline**: 3-5 days
+**Timeline**: 4-6 days (widget testing adds 1 day)
 
 ### Phase 5: ASO & Launch
 **Deliverables**:
 - App Store listing (title, description, keywords, screenshots)
+- Widget demo video для App Store preview
 - Privacy Policy & Terms (required)
 - Submit for review
 - Launch marketing (ProductHunt, Reddit)
 
 **Timeline**: 2-3 days
 
-**Total MVP Timeline**: ~20-25 days
+**Total MVP Timeline**: ~25-30 days (widget adds ~5 days overall)
 
 ---
 
@@ -678,11 +745,11 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 - ✅ Unlimited decks & cards
 - ✅ FSRS spaced repetition algorithm
 - ✅ Liquid Glass design (exclusive)
+- ✅ Interactive Home Screen widget
 - ✅ Text-to-speech pronunciation
 - ✅ Daily reminders & streaks
 - 🔮 Cloud sync across devices (coming soon)
 - 🔮 AI auto-creation (coming soon)
-- 🔮 Interactive widget (coming soon)
 
 **Trust Signals**:
 - "Cancel anytime"
@@ -698,7 +765,6 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 | Feature | Why Not MVP | When to Add |
 |---------|-------------|-------------|
 | AI Auto-Creation | Complexity, cost | v1.1 (premium tier) |
-| Interactive Widget | iOS complexity | v1.1 (major update) |
 | CloudKit Sync | Backend complexity | v1.1 (mentioned as "coming soon") |
 | Statistics Dashboard | Nice-to-have | v1.1 |
 | Card Templates | Power user feature | v1.2 |
@@ -706,7 +772,7 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 | Image/Photo Cards | Complexity | v1.2 |
 | Shared Decks | Backend + moderation | v2.0 |
 | iPad Optimization | Platform complexity | v1.3 |
-| Siri Integration | After widget | v1.5 |
+| Siri Integration | After interactive widget | v1.5 |
 
 ---
 
@@ -721,7 +787,7 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 
 ### Risk 2: Users Complain "No Features"
 **Mitigation**:
-- Clear roadmap в paywall: "Coming soon: AI, Widget, Sync"
+- Clear roadmap в paywall: "Coming soon: AI Auto-Creation, Cloud Sync"
 - Communication: "MVP to validate, more features coming"
 - Reddit post: "Built first version, what features do you want?"
 
@@ -737,12 +803,23 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 - Differentiation: Liquid Glass дизайн unique
 - Community: Build early adopter community (Reddit, Twitter)
 
+### Risk 5: Widget Complexity Delays MVP
+**Mitigation**:
+- Start widget development early (parallel with main app)
+- Use proven examples: chockenberry/Intentional reference
+- Test на iOS 17.0+ devices early
+- Fallback: If widget buggy, можем ship without и add в v1.0.1 patch
+- Simplify: Focus на Medium size widget first, Small/Large если time permits
+
 ---
 
 ## MVP Launch Checklist
 
 ### Pre-Launch (Development)
 - [ ] All MUST HAVE features implemented
+- [ ] Widget tested на iOS 17/18 (AppIntents работают)
+- [ ] Widget memory usage < 50MB (extension limits)
+- [ ] AppGroup shared container работает
 - [ ] Adapty integration tested (sandbox)
 - [ ] TestFlight beta с 10-20 testers
 - [ ] Critical bugs fixed
@@ -751,14 +828,15 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 
 ### App Store Submission
 - [ ] App Store Connect setup (app ID, bundle ID)
+- [ ] App Groups configured (com.zencards.shared)
 - [ ] Privacy Policy published (website or Github Pages)
 - [ ] Terms of Service published
 - [ ] App Store listing:
   - Title: "ZenCards: Smart Flashcards"
   - Subtitle: "Beautiful Spaced Repetition"
-  - Keywords: flashcards, anki, study, learning, spaced repetition
-  - Screenshots (5): Onboarding, Review, Liquid Glass UI, Deck List, Stats
-  - App Preview video (optional для MVP)
+  - Keywords: flashcards, anki, study, learning, spaced repetition, widget
+  - Screenshots (6): Widget, Onboarding, Review, Liquid Glass UI, Deck List, Settings
+  - App Preview video: Show widget demo (interactive review)
 - [ ] Age rating: 4+
 - [ ] Pricing: Free (with in-app subscription)
 
@@ -779,15 +857,16 @@ Adapty.logShowPaywall(paywall)  // When paywall appears
 1. **Onboarding** (3 screens)
 2. **Paywall** (Adapty template — just визуальные референсы)
 3. **Review Session** (front + back states + buttons)
+4. **Interactive Widget** (Small/Medium/Large sizes) ⭐ Killer feature
 
 ### Priority 2 (Core Functionality):
-4. **Deck List** (empty state + populated)
-5. **Card List** (empty state + populated)
-6. **Card Create/Edit**
+5. **Deck List** (empty state + populated)
+6. **Card List** (empty state + populated)
+7. **Card Create/Edit**
 
 ### Priority 3 (Secondary):
-7. **Settings**
-8. **Empty states** (various)
+8. **Settings**
+9. **Empty states** (various)
 
 **Design Focus**:
 - **Liquid Glass materials** — главное отличие от Anki
