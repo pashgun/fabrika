@@ -24,6 +24,13 @@ Phase 5: aso_expert → App Store Package
 
 ## Агенты
 
+### 🔍 app_analyzer - App Store Intelligence Analyst
+Анализирует существующие приложения из App Store по URL. Изучает App Store листинг, видео-обзоры, статьи, Reddit обсуждения.
+
+**Результат:** `app_analysis.md` с детальным анализом features, UI/UX, отзывов пользователей
+
+**Используется для:** Клонирования существующих приложений с улучшенным дизайном
+
 ### 🎯 pm_lead - Product Marketing Manager
 Анализирует конкурентов, создаёт требования, приоритизирует функции по MoSCoW методу.
 
@@ -73,6 +80,87 @@ Phase 5: aso_expert → App Store Package
 # 3. Отправьте в App Store! 🎉
 ```
 
+## 🎯 Клонирование Приложений
+
+Fabrika может анализировать существующие App Store приложения и создавать современные клоны с улучшенным дизайном!
+
+```bash
+# Клонировать приложение из App Store с современным iOS 26 дизайном
+./factory.sh clone "https://apps.apple.com/us/app/calm/id571800810"
+```
+
+### Как это работает?
+
+```
+App Store URL
+    ↓
+Phase 0: app_analyzer → app_analysis.md (анализ оригинала)
+    ↓
+Phase 1: pm_lead → backlog.md (на основе анализа)
+    ↓
+Phase 2: ui_engineer → design_system.md (современный iOS дизайн)
+    ↓
+Phase 3: swift_dev → Xcode Project
+    ↓
+Phase 4: qa_audit → Production Build + Tests
+    ↓
+Phase 5: aso_expert → App Store Package
+    ↓
+Современный клон готов! 🚀
+```
+
+### Что анализируется?
+
+- ✅ **App Store листинг** - Screenshots, reviews, ratings, description
+- ✅ **YouTube видео** - Обзоры, туториалы, user flows
+- ✅ **Статьи и посты** - Техблоги, сравнения, отзывы
+- ✅ **Reddit обсуждения** - Реальные мнения пользователей
+
+### Чем клон отличается от оригинала?
+
+**Функционально схожий:**
+- ✅ Все ключевые features оригинала
+- ✅ Похожая навигационная структура
+- ✅ Решает те же пользовательские задачи
+
+**Визуально отличающийся:**
+- 🎨 **Liquid Glass materials** - Современные iOS 26 материалы
+- 🎨 **Новая цветовая палитра** - Трендовые цвета 2026 (не те же что у оригинала)
+- 🎨 **SF Symbols 6** - Нативные iOS иконки
+- 🎨 **Minimalist aesthetic** - Больше white space, чище UI
+- 🎨 **iOS 26 APIs** - `.scrollTransition()`, `.sensoryFeedback()`, `.containerRelativeFrame()`
+
+**Улучшенный UX:**
+- ✨ Исправлены жалобы из reviews оригинала
+- ✨ Добавлены часто запрашиваемые features
+- ✨ Современные iOS patterns (вместо устаревших)
+
+### Пример: Клон Meditation App
+
+```bash
+./factory.sh clone "https://apps.apple.com/us/app/calm/id571800810" --local
+```
+
+**Что вы получите:**
+1. **app_analysis.md** - Полный анализ Calm (features, UI, отзывы, competitors)
+2. **backlog.md** - Требования на основе анализа + улучшения
+3. **design_system.md** - Новый дизайн:
+   - Цвета: Soft Lavender + Warm Peach (вместо синего Calm)
+   - Liquid Glass cards (вместо solid backgrounds)
+   - Современная типографика
+4. **Xcode Project** - Рабочее приложение с Swift 6 + SwiftData
+5. **Tests** - Unit + UI тесты, accessibility audit
+6. **App Store Package** - Готово к публикации
+
+### Только анализ (без разработки)
+
+```bash
+# Если нужен только анализ без создания приложения
+./factory.sh app_analyzer --url "https://apps.apple.com/app/headspace/id493145008"
+
+# Результат: app_analysis.md
+```
+
 ## Режимы Работы
 
 ### 📂 Локальные Проекты (по умолчанию)
@@ -95,7 +183,8 @@ cd /path/to/existing/project
 
 ## Возможности
 
-- 🤖 **AI-driven workflow** - 5 специализированных агентов
+- 🤖 **AI-driven workflow** - 6 специализированных агентов
+- 🎯 **App Cloning** - Клонирование существующих App Store приложений
 - 🎨 **Liquid Glass** - Современный iOS 26 дизайн
 - ⚡ **Swift 6** - Strict concurrency, actors, async/await
 - ♿ **Accessibility-first** - WCAG AA compliance
@@ -134,16 +223,26 @@ cd fabrika
 
 ## Использование
 
-### Полный Pipeline
+### Полный Pipeline (Новое Приложение)
 
 ```bash
 # Запустить все 5 фаз последовательно
 ./factory.sh start "Your app idea"
 ```
 
+### Полный Pipeline (Клонирование)
+
+```bash
+# Запустить все 6 фаз: анализ + разработка
+./factory.sh clone "https://apps.apple.com/us/app/calm/id571800810"
+```
+
 ### Отдельные Фазы
 
 ```bash
+# Phase 0: App Analysis (только для клонирования)
+./factory.sh app_analyzer --url "https://apps.apple.com/app/headspace/id493145008"
+
 # Phase 1: Research
 ./factory.sh pm_lead --input "Build a recipe app like Tasty"
 
@@ -279,6 +378,8 @@ Fabrika интегрируется с [Axiom](https://github.com/CharlesWiltgen/
 - [x] Phase 4: qa_audit agent
 - [x] Phase 5: aso_expert agent
 - [x] factory.sh CLI tool
+- [x] Phase 0: app_analyzer agent (App Store cloning)
+- [x] Clone feature with modern design differentiation
 - [ ] Android support (Kotlin, Jetpack Compose)
 - [ ] Cross-platform (React Native, Flutter)
 - [ ] Автоматический CI/CD setup

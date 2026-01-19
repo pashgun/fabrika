@@ -6,11 +6,13 @@
 
 1. [Установка](#установка)
 2. [Быстрый Старт](#быстрый-старт)
-3. [Режимы Работы](#режимы-работы)
-4. [Агенты](#агенты)
-5. [5-Фазный Workflow](#5-фазный-workflow)
-6. [Примеры](#примеры)
-7. [Troubleshooting](#troubleshooting)
+3. [Клонирование Приложений](#клонирование-приложений)
+4. [Режимы Работы](#режимы-работы)
+5. [Агенты](#агенты)
+6. [5-Фазный Workflow](#5-фазный-workflow)
+7. [6-Фазный Workflow (Клонирование)](#6-фазный-workflow-клонирование)
+8. [Примеры](#примеры)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -88,6 +90,169 @@ chmod +x factory.sh
 - `ProjectName.xcodeproj` - Xcode проект
 - Test suite + audit reports
 - App Store submission package
+
+---
+
+## Клонирование Приложений
+
+Fabrika может анализировать существующие приложения из App Store и создавать их современные клоны с улучшенным дизайном.
+
+### Быстрый старт с клонированием
+
+```bash
+# 1. Запустите клонирование с URL приложения
+./factory.sh clone "https://apps.apple.com/us/app/calm/id571800810"
+
+# 2. Следуйте инструкциям (6 фаз)
+# Phase 0: Анализ оригинального приложения
+# Phase 1-5: Обычный workflow с учётом анализа
+
+# 3. В конце получите современный клон! 🎉
+```
+
+### Что происходит при клонировании?
+
+**Phase 0: App Analysis**
+- 🔍 Анализируется App Store listing
+- 🔍 Собираются отзывы пользователей
+- 🔍 Изучаются видео-обзоры на YouTube
+- 🔍 Анализируются статьи и Reddit обсуждения
+- 📝 Создаётся детальный `app_analysis.md`
+
+**Phase 1: Research (с app_analysis.md)**
+- pm_lead использует анализ вместо самостоятельного исследования
+- Структурирует features в MoSCoW приоритеты
+- Добавляет улучшения на основе жалоб пользователей
+- Создаёт `backlog.md` для клона
+
+**Phase 2: Design (современный iOS дизайн)**
+- ui_engineer создаёт **визуально отличающийся** дизайн
+- Применяет Liquid Glass материалы
+- Использует современную цветовую палитру (не как у оригинала)
+- SF Symbols 6, минималистичная эстетика
+- Создаёт `design_system.md` с дифференциацией
+
+**Phase 3-5: Build, Audit, Delivery**
+- Стандартный workflow с современным кодом (Swift 6)
+
+### Функциональность vs Дизайн
+
+**✅ Клонируем (Функционально):**
+- Все ключевые features оригинала
+- Навигационную структуру (если она хороша)
+- User flows и логику
+- Core value proposition
+
+**🎨 Дифференцируем (Визуально):**
+- Цветовая схема (современные тренды 2026)
+- Liquid Glass материалы (вместо flat backgrounds)
+- Типографика (SF Pro с иерархией)
+- Иконки (SF Symbols 6)
+- Spacing и layout (больше white space)
+- Анимации (iOS 26 APIs)
+
+**✨ Улучшаем (UX):**
+- Исправляем жалобы из reviews
+- Добавляем запрошенные features
+- Убираем UX friction
+- Современные iOS patterns
+
+### Пример: Клон Calm
+
+```bash
+./factory.sh clone "https://apps.apple.com/us/app/calm/id571800810" --local
+```
+
+**Что вы получите:**
+
+**1. app_analysis.md** (~5000 строк)
+```markdown
+# App Analysis: Calm
+
+## Feature Inventory
+- Core Features: Meditation sessions, Sleep stories, Breathing exercises...
+- Secondary Features: Progress tracking, Daily reminders...
+- Premium Features: Masterclasses, Music tracks...
+
+## UI Patterns Observed
+- Navigation: Bottom Tab Bar (4 tabs)
+- Design Style: Deep blue (#1E3A8A), gradients, nature photos
+- Components: Card-based layout, hero images...
+
+## User Feedback
+- Top Praise: Great content library, helps with sleep
+- Top Complaints: Too expensive ($69.99/year), limited free content...
+
+## Differentiation Strategy
+- Color: Use Soft Lavender + Warm Peach (not blue)
+- Materials: Apply Liquid Glass (Calm uses flat)
+- Features: Add free trial period, more free content
+```
+
+**2. backlog.md** (на основе анализа)
+```markdown
+# Product Backlog: ZenFlow (Inspired by Calm)
+
+## MUST HAVE
+1. Guided Meditation Sessions (like Calm, but with categories)
+2. Sleep Stories with audio (improve on Calm's limited free stories)
+3. Breathing Exercises (add more techniques than Calm)
+4. Progress Tracking (better visualization than Calm)
+
+## Design Philosophy
+Modern iOS 26 aesthetic, differentiates from Calm's older flat design
+```
+
+**3. design_system.md** (современный дизайн)
+```markdown
+# Design System: ZenFlow
+
+## Comparison with Original (Calm)
+
+| Aspect       | Calm                          | ZenFlow (Our Design)         |
+|--------------|-------------------------------|------------------------------|
+| Primary Color| Deep Blue (#1E3A8A)          | Soft Lavender (#B4A7D6)      |
+| Materials    | Flat solid backgrounds        | Liquid Glass (.ultraThinMaterial) |
+| Navigation   | Bottom Tab Bar                | Floating Tab Bar with blur   |
+| Typography   | Custom serif headings         | SF Pro with Dynamic Type     |
+
+## Color System
+Primary: Soft Lavender - calming but contemporary
+Accent: Warm Peach - for CTAs
+Background: Dynamic gradient (white → deep purple in dark mode)
+```
+
+**4-6. Обычные фазы**
+- Xcode проект с Swift 6 + SwiftData
+- Tests + audits
+- App Store package
+
+### Только анализ (без разработки)
+
+Если нужен только анализ приложения без создания клона:
+
+```bash
+./factory.sh app_analyzer --url "https://apps.apple.com/app/headspace/id493145008"
+```
+
+**Результат:**
+- `app_analysis.md` создан
+- Можно изучить features, UI, отзывы
+- Потом запустить `./factory.sh pm_lead` чтобы продолжить
+
+### Когда использовать клонирование?
+
+**✅ Хорошие сценарии:**
+- Обучение (понять как устроено популярное приложение)
+- Создание конкурента (с улучшениями)
+- Создание нишевой версии (например, "Calm для детей")
+- Портирование концепции в другую область
+
+**⚠️ Важно:**
+- Не копируйте контент (тексты, audio, изображения)
+- Не используйте имя оригинала
+- Не копируйте иконку или брендинг
+- Фокус на функциональности, а не на пиксель-идеальном копировании
 
 ---
 
@@ -175,6 +340,43 @@ cd /path/to/ExistingApp
 ---
 
 ## Агенты
+
+### app_analyzer - App Store Intelligence Analyst
+
+**Что делает:**
+- Анализирует существующие приложения из App Store
+- Изучает App Store листинг (screenshots, reviews, description)
+- Собирает и анализирует видео-обзоры (YouTube)
+- Читает статьи, посты, Reddit обсуждения
+- Создаёт детальный отчёт о features, UI/UX, отзывах
+
+**Вход:** App Store URL
+
+**Выход:** `app_analysis.md` с comprehensive анализом
+
+**Пример вызова:**
+```bash
+./factory.sh app_analyzer --url "https://apps.apple.com/us/app/calm/id571800810"
+```
+
+**Что будет в app_analysis.md:**
+- App Store Information (title, rating, category, price)
+- Feature Inventory (Core/Secondary/Premium features)
+- UI/UX Patterns Observed (navigation, screens, design style, colors)
+- User Feedback Analysis (top praise, top complaints, feature requests)
+- Insights from Video Reviews & Tutorials
+- Insights from Articles & Posts
+- Technical Requirements (inferred data models, APIs, frameworks)
+- Competitive Context
+- Differentiation Strategy for Clone
+
+**Когда использовать:**
+- Хотите создать клон существующего приложения
+- Нужен competitive analysis конкретного приложения
+- Планируете улучшить существующее приложение
+- Изучаете best practices популярных apps
+
+---
 
 ### pm_lead - Product Marketing Manager
 
@@ -483,6 +685,191 @@ cd /path/to/ExistingApp
 ```bash
 ./factory.sh aso_expert
 ```
+
+---
+
+## 6-Фазный Workflow (Клонирование)
+
+Когда вы запускаете `./factory.sh clone <url>`, система проходит 6 фаз вместо 5.
+
+### Phase 0: App Analysis (1-2 часа)
+
+**Агент:** app_analyzer
+
+**Задачи:**
+1. Анализ App Store листинга (screenshots, reviews, description)
+2. Поиск и анализ YouTube видео-обзоров
+3. Поиск и чтение статей о приложении
+4. Анализ Reddit обсуждений и форумов
+5. Извлечение feature list из всех источников
+6. Анализ UI/UX patterns из screenshots
+7. Анализ user sentiment (praise vs complaints)
+8. Идентификация технических требований
+9. Поиск конкурентов и сравнение
+10. Создание differentiation strategy
+
+**Выход:**
+- `app_analysis.md` - Comprehensive анализ (~5000 строк)
+
+**Handoff:** app_analysis.md готов для pm_lead
+
+**Команда:**
+```bash
+./factory.sh app_analyzer --url "https://apps.apple.com/us/app/calm/id571800810"
+```
+
+**Что содержит app_analysis.md:**
+```markdown
+# App Analysis: Calm
+
+## App Store Information
+- Title: Calm: Sleep & Meditation
+- Rating: 4.8⭐ (500,000+ ratings)
+- Category: Health & Fitness
+- Price: Free (IAP: $69.99/year)
+
+## Feature Inventory
+### Core Features (Must Have)
+1. Guided Meditation Sessions
+   - Evidence: Seen in screenshots 1,2,3; mentioned in 90% of reviews
+   - User Value: "Helps me relax after work" (top praise)
+   - Frequency: Daily usage reported
+
+2. Sleep Stories
+   - Evidence: Featured in YouTube reviews, 50+ mentions
+   - User Value: "Finally can fall asleep" (2nd most praised)
+
+### Top Complaints
+1. "Too expensive" (~30% of negative reviews)
+   - Opportunity: Offer lower-tier subscription
+2. "Limited free content" (~25% of negative reviews)
+   - Opportunity: More generous free tier
+
+## Differentiation Strategy
+- Color: Use Soft Lavender + Warm Peach (not Calm's deep blue)
+- Materials: Apply Liquid Glass (Calm uses flat backgrounds)
+- Features: More free content, lower pricing tier
+```
+
+---
+
+### Phase 1: Research with Analysis (1 час)
+
+**Агент:** pm_lead (в режиме клонирования)
+
+**Отличия от обычного workflow:**
+- ✅ **НЕ нужно** искать конкурентов (уже в app_analysis.md)
+- ✅ **НЕ нужно** анализировать features (уже задокументированы)
+- ✅ **НЕ нужно** собирать отзывы (уже собраны)
+
+**Задачи:**
+1. Прочитать app_analysis.md
+2. Структурировать features в MoSCoW приоритеты
+3. Создать user stories с acceptance criteria
+4. Добавить улучшения на основе complaints
+5. Определить technical stack (Swift 6, SwiftData, etc.)
+6. Задокументировать differentiation approach
+
+**Выход:**
+- `backlog.md` - на основе app_analysis.md
+
+**Handoff:** Requirements готовы, с фокусом на дифференциацию
+
+**Команда:**
+```bash
+# Вызывается автоматически после Phase 0
+./factory.sh pm_lead
+```
+
+**Пример backlog.md:**
+```markdown
+# Product Backlog: ZenFlow (Inspired by Calm)
+
+## Executive Summary
+Modern iOS meditation app inspired by Calm, but with:
+- Liquid Glass design (Calm uses flat)
+- More generous free tier (address #1 complaint)
+- Lower pricing option (address #2 complaint)
+
+## Feature Breakdown
+### MUST HAVE
+1. Guided Meditation Sessions
+   - Description: From app_analysis.md - core feature
+   - Differentiation: Better categorization than Calm
+   - Technical: SwiftData models for sessions, AVAudioPlayer
+```
+
+---
+
+### Phase 2: Design with Differentiation (3-4 часа)
+
+**Агент:** ui_engineer (в режиме клонирования)
+
+**Отличия от обычного workflow:**
+- ✅ Читает app_analysis.md секцию "UI Patterns Observed"
+- ✅ Понимает оригинальный дизайн
+- ✅ **Обязательно дифференцируется** визуально
+
+**Задачи:**
+1. Прочитать "UI Patterns Observed" из app_analysis.md
+2. Определить навигационную структуру (может быть похожей)
+3. Выбрать **другую** цветовую палитру (не как у оригинала)
+4. Применить Liquid Glass материалы
+5. Использовать SF Symbols 6 (не копировать иконки оригинала)
+6. Создать minimalist, современный дизайн
+7. Добавить UI улучшения на основе complaints
+
+**Выход:**
+- `design_system.md` с секцией "Comparison with Original"
+
+**Handoff:** Modern design differentiated от оригинала
+
+**Команда:**
+```bash
+# Вызывается автоматически после Phase 1
+./factory.sh ui_engineer
+```
+
+**Пример design_system.md:**
+```markdown
+# Design System: ZenFlow
+
+## Comparison with Original (Calm)
+
+| Aspect       | Calm                    | ZenFlow                 |
+|--------------|-------------------------|-------------------------|
+| Primary Color| Deep Blue (#1E3A8A)    | Soft Lavender (#B4A7D6) |
+| Materials    | Flat solid backgrounds  | Liquid Glass (.ultraThinMaterial) |
+| Typography   | Custom serif            | SF Pro Dynamic Type     |
+
+## Rationale
+- Lavender: Calming (like blue) but contemporary (2026 trend)
+- Liquid Glass: Modern iOS 26 aesthetic, Calm feels dated
+- SF Pro: Native, excellent accessibility support
+```
+
+---
+
+### Phase 3-5: Build, Audit, Delivery
+
+Эти фазы идентичны обычному workflow. Различие только в том, что:
+- Build реализует **дифференцированный** дизайн
+- Features соответствуют **оригиналу** функционально
+- Code использует **современный** Swift 6 stack
+
+---
+
+### Полный Timeline для Клонирования
+
+| Phase | Duration | Agent | Output |
+|-------|----------|-------|--------|
+| 0     | 1-2 часа | app_analyzer | app_analysis.md |
+| 1     | 1 час    | pm_lead | backlog.md |
+| 2     | 3-4 часа | ui_engineer | design_system.md |
+| 3     | 8-16 часов | swift_dev | Xcode Project |
+| 4     | 4-8 часов | qa_audit | Production Build |
+| 5     | 3-5 часов | aso_expert | App Store Package |
+| **Total** | **20-36 часов** | **6 agents** | **Ready to Ship** |
 
 ---
 
