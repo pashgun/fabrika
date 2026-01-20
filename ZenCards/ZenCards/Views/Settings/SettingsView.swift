@@ -1,55 +1,9 @@
 import SwiftUI
-import StoreKit
 
 struct SettingsView: View {
-    @EnvironmentObject var subscriptionService: SubscriptionService
-    @State private var showRestoreSuccess = false
-    @State private var showRestoreError = false
-    @State private var isRestoring = false
-
     var body: some View {
         NavigationStack {
             Form {
-                // Account Section
-                Section {
-                    if subscriptionService.isPremium {
-                        Label {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Premium Active")
-                                    .font(.body)
-                                Text("Thank you for your support!")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } icon: {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(Color(hex: "#14B8A6"))
-                        }
-
-                        Button("Manage Subscription") {
-                            openSubscriptionManagement()
-                        }
-                    } else {
-                        Label("Free Account", systemImage: "person")
-                    }
-
-                    Button {
-                        restorePurchases()
-                    } label: {
-                        HStack {
-                            Text("Restore Purchases")
-                            Spacer()
-                            if isRestoring {
-                                ProgressView()
-                                    .controlSize(.small)
-                            }
-                        }
-                    }
-                    .disabled(isRestoring)
-                } header: {
-                    Text("Account")
-                }
-
                 // App Section
                 Section {
                     NavigationLink {
@@ -86,52 +40,6 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
-            .alert("Purchases Restored", isPresented: $showRestoreSuccess) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text("Your purchases have been restored successfully.")
-            }
-            .alert("Restore Failed", isPresented: $showRestoreError) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text("No purchases found to restore.")
-            }
-        }
-    }
-
-    private func restorePurchases() {
-        isRestoring = true
-
-        Task {
-            do {
-                let isPremium = try await subscriptionService.restorePurchases()
-
-                await MainActor.run {
-                    isRestoring = false
-                    if isPremium {
-                        showRestoreSuccess = true
-                    } else {
-                        showRestoreError = true
-                    }
-                }
-            } catch {
-                await MainActor.run {
-                    isRestoring = false
-                    showRestoreError = true
-                }
-            }
-        }
-    }
-
-    private func openSubscriptionManagement() {
-        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            Task {
-                do {
-                    try await AppStore.showManageSubscriptions(in: scene)
-                } catch {
-                    print("Failed to open subscription management: \(error)")
-                }
-            }
         }
     }
 }

@@ -1,11 +1,9 @@
 import SwiftUI
 import SwiftData
-import Adapty
 
 @main
 struct ZenCardsApp: App {
     let modelContainer: ModelContainer
-    @StateObject private var subscriptionService = SubscriptionService()
 
     init() {
         // Initialize SwiftData ModelContainer
@@ -30,17 +28,15 @@ struct ZenCardsApp: App {
             fatalError("Could not initialize ModelContainer: \(error)")
         }
 
-        // Initialize Adapty
-        Adapty.activate("PUBLIC_SDK_KEY_FROM_ADAPTY_DASHBOARD")
+        // Create sample data for development/testing
         #if DEBUG
-        Adapty.logLevel = .verbose
+        SampleDataHelper.createSampleData(modelContainer: modelContainer)
         #endif
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(subscriptionService)
         }
         .modelContainer(modelContainer)
     }
