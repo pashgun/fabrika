@@ -938,4 +938,669 @@ struct CardWidgetProvider: TimelineProvider {
 
 ---
 
-**Next**: Priority 2 screens (Deck List, Card List, Card Create/Edit)
+## Priority 2: Core Functionality Screens
+
+### 5. Deck List Screen
+
+**Purpose**: Main hub — users browse and manage decks, navigate to cards.
+
+#### Empty State
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│  Your Decks          [+]    │ Navigation bar
+│                             │
+│                             │
+│                             │
+│          📚                 │ Icon (48pt)
+│                             │
+│   Create your first deck    │ Title 3, Bold
+│                             │
+│   Organize your cards       │ Body, Secondary
+│   into topics or subjects   │
+│                             │
+│                             │
+│     [Create Deck]           │ Primary button
+│                             │
+│                             │
+└─────────────────────────────┘ Tab Bar
+```
+
+**Visual Elements**:
+
+**Navigation Bar**:
+- Title: "Your Decks" (Title 2, Semibold, Rounded)
+- Color: .primary
+- Background: .ultraThinMaterial
+- Add Button (+): Top-right, primaryTeal color, 44x44pt tap target
+
+**Empty State Content** (Centered):
+- Icon: 📚 (book stack emoji, 48pt font size)
+- Headline: "Create your first deck"
+- Font: Title 3 (.title3, rounded), Bold
+- Color: .primary
+- Spacing: 16pt below icon
+
+**Description**:
+- Text: "Organize your cards into topics or subjects"
+- Font: Body (.body), Regular
+- Color: .secondary
+- Multi-line, centered
+- Spacing: 12pt below headline
+
+**Create Deck Button**:
+- Label: "Create Deck"
+- Style: PrimaryButton
+- Width: 200pt (centered)
+- Action: Show Create Deck sheet
+
+**Background**:
+- .ultraThinMaterial
+
+**Tab Bar** (Bottom):
+- 3 tabs: Decks (active), Review, Settings
+- Icons: "square.stack.3d.up", "clock", "gearshape"
+- Active color: primaryTeal
+- Inactive color: .secondary
+
+---
+
+#### Populated State
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│  Your Decks          [+]    │ Navigation bar
+│                             │
+│  ┌─────────────────────┐   │
+│  │ 🟢 Spanish          │   │ Deck card
+│  │    25 cards, 5 due  │   │
+│  └─────────────────────┘   │
+│                             │
+│  ┌─────────────────────┐   │
+│  │ 🔵 Japanese         │   │ Deck card
+│  │    40 cards, 0 due  │   │
+│  └─────────────────────┘   │
+│                             │
+│  ┌─────────────────────┐   │
+│  │ 🟠 French           │   │ Deck card
+│  │    10 cards, 3 due  │   │
+│  └─────────────────────┘   │
+│                             │
+└─────────────────────────────┘ Tab Bar
+```
+
+**Visual Elements**:
+
+**Deck Card** (Each item):
+- Size: Screen width - 32pt (16pt padding each side)
+- Height: 80pt
+- Background: .regularMaterial
+- Corner radius: 16pt
+- Shadow: subtle (black, opacity 0.1, radius 4, y: 2)
+- Padding: 16pt internal
+
+**Deck Card Content**:
+
+**Color Badge** (Left):
+- Circle: 12pt diameter
+- Colors: Color badge from deck (teal, green, blue, amber, etc.)
+- Position: Left edge, vertically centered
+
+**Deck Name**:
+- Text: "Spanish" (example)
+- Font: Headline (.headline, rounded), Semibold
+- Color: .primary
+- Position: 16pt from badge
+
+**Card Count** (Below name):
+- Text: "25 cards, 5 due"
+- Font: Callout (.callout, rounded), Regular
+- Color: .secondary (or primaryTeal if due > 0)
+- Position: 4pt below name
+
+**Chevron** (Right):
+- Icon: "chevron.right"
+- Size: 16pt
+- Color: .secondary opacity 0.5
+- Position: Right edge, vertically centered
+
+**List Layout**:
+- Vertical scroll
+- Spacing: 12pt between cards
+- Padding: 16pt top/horizontal
+
+**Interactions**:
+- **Tap deck card**: Navigate to Card List for that deck
+- **Swipe left**: Edit/Delete actions (context menu)
+- **Long press**: Reorder decks (drag & drop)
+- **Tap Add (+)**: Show Create Deck sheet
+
+**Accessibility**:
+- VoiceOver: "Spanish deck. 25 cards, 5 due today. Double-tap to open."
+- Each deck: isAccessibilityElement = true
+
+---
+
+### 6. Card List Screen
+
+**Purpose**: Browse cards within a deck, edit/delete cards.
+
+#### Empty State
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│ [Back] Spanish       [+]    │ Navigation bar
+│                             │
+│                             │
+│                             │
+│          📝                 │ Icon (48pt)
+│                             │
+│   Add your first card       │ Title 3, Bold
+│                             │
+│   Create flashcards to      │ Body, Secondary
+│   start learning            │
+│                             │
+│                             │
+│     [Add Card]              │ Primary button
+│                             │
+│                             │
+└─────────────────────────────┘
+```
+
+**Visual Elements**:
+
+**Navigation Bar**:
+- Back button: "<" chevron + "Back" (left)
+- Title: "Spanish" (deck name, Title 2)
+- Add button: "+" (right)
+
+**Empty State**:
+- Icon: 📝 (memo emoji, 48pt)
+- Headline: "Add your first card"
+- Description: "Create flashcards to start learning"
+- Add Card button: Primary CTA
+
+---
+
+#### Populated State
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│ [Back] Spanish       [+]    │ Navigation bar
+│                             │
+│  ┌─────────────────────┐   │
+│  │ Hola                │   │ Card preview
+│  │ New                 │   │ Badge
+│  └─────────────────────┘   │
+│                             │
+│  ┌─────────────────────┐   │
+│  │ Gracias             │   │ Card preview
+│  │ Due today           │   │ Status
+│  └─────────────────────┘   │
+│                             │
+│  ┌─────────────────────┐   │
+│  │ Buenos días         │   │ Card preview
+│  │ Next review: 3d     │   │ Status
+│  └─────────────────────┘   │
+│                             │
+└─────────────────────────────┘
+```
+
+**Visual Elements**:
+
+**Card Preview** (Each item):
+- Size: Screen width - 32pt
+- Height: 64pt
+- Background: .regularMaterial
+- Corner radius: 12pt
+- Padding: 12pt internal
+
+**Card Content**:
+
+**Front Text** (Main):
+- Text: "Hola" (front of card)
+- Font: Body (.body, default), Semibold
+- Color: .primary
+- Line limit: 1 (truncate if long)
+- Position: Top-left
+
+**Status Badge/Text** (Below):
+- **New card**: Badge "New" (teal, small, rounded)
+- **Due today**: Text "Due today" (primaryTeal color)
+- **Future**: Text "Next review: 3d" (secondary color)
+- **Learning**: Badge "Learning" (amber)
+- Font: Caption (.caption), Regular
+
+**List Layout**:
+- Vertical scroll
+- Spacing: 8pt between cards
+- Padding: 16pt top/horizontal
+
+**Swipe Actions**:
+- **Swipe left**: Edit, Delete (red)
+- **Swipe right**: None
+
+**Interactions**:
+- **Tap card**: Navigate to Card Detail/Edit screen
+- **Tap Add (+)**: Show Create Card sheet
+- **Pull to refresh**: Reload cards (sync FSRS due dates)
+
+**Accessibility**:
+- VoiceOver: "Card: Hola. New card. Double-tap to edit."
+
+---
+
+### 7. Card Create/Edit Screen
+
+**Purpose**: Create new cards or edit existing ones.
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│ [Cancel]  New Card   [Save] │ Navigation bar
+│                             │
+│  Front                      │ Label
+│  ┌─────────────────────┐   │
+│  │ Question or context │   │ Text field
+│  │                     │   │ (multiline)
+│  │                     │   │
+│  └─────────────────────┘   │
+│                             │
+│  Back                       │ Label
+│  ┌─────────────────────┐   │
+│  │ Answer or definition│   │ Text field
+│  │                     │   │ (multiline)
+│  │                     │   │
+│  └─────────────────────┘   │
+│                             │
+│  Deck                       │ Label
+│  ┌─────────────────────┐   │
+│  │ 🟢 Spanish      ⌄   │   │ Picker
+│  └─────────────────────┘   │
+│                             │
+│  🔊 Preview pronunciation   │ TTS button
+│                             │
+│                             │
+│  [Keyboard]                 │ Keyboard area
+└─────────────────────────────┘
+```
+
+**Visual Elements**:
+
+**Navigation Bar**:
+- Cancel button (left): Text "Cancel", .secondary color
+- Title: "New Card" or "Edit Card" (centered)
+- Save button (right): Text "Save", primaryTeal, disabled if fields empty
+
+**Front Field**:
+- Label: "Front" (Headline, Rounded, Semibold)
+- Text editor: GlassTextField (multiline)
+- Placeholder: "Question or context"
+- Background: .regularMaterial
+- Corner radius: 12pt
+- Border: white opacity 0.1, 1pt
+- Height: 120pt minimum, expands with content
+- Font: Body (.body, default), Regular
+- Padding: 16pt internal
+
+**Back Field**:
+- Label: "Back"
+- Same style as Front
+- Placeholder: "Answer or definition"
+- Spacing: 20pt below Front field
+
+**Deck Picker**:
+- Label: "Deck"
+- Style: GlassCard with chevron
+- Shows: Color badge + Deck name + down arrow
+- Tap: Show deck picker sheet (list of all decks)
+- Default: Current deck (if navigated from deck) or first deck
+- Spacing: 20pt below Back field
+
+**TTS Preview Button**:
+- Icon: "speaker.wave.2.fill" + Text "Preview pronunciation"
+- Style: Secondary button (ghost)
+- Background: .thickMaterial
+- Border: primaryTeal, 1pt
+- Height: 44pt
+- Action: Play AVSpeechSynthesizer for Back text
+- Disabled if Back is empty
+- Spacing: 16pt below Deck picker
+
+**Background**:
+- .ultraThinMaterial
+
+**Keyboard**:
+- System keyboard (auto-appears when field focused)
+- Done button in toolbar (dismisses keyboard)
+
+**Interactions**:
+
+**Cancel**:
+- Action: Dismiss screen
+- If fields changed: Show confirmation alert "Discard changes?"
+
+**Save**:
+- Validation: Front and Back must have text (minimum 1 character)
+- Action:
+  1. Create/Update card in SwiftData
+  2. Set initial FSRS metadata (stability: 0, difficulty: 0, due: now)
+  3. Dismiss screen
+  4. Show brief success toast "Card saved"
+- Disabled state: Grayed out if validation fails
+
+**TTS Preview**:
+- Action: Play back text pronunciation (AVSpeechSynthesizer)
+- Language: Auto-detect or use deck language setting (future)
+- Feedback: Speaker icon pulses during playback
+
+**Deck Picker Sheet** (when tapped):
+```
+┌─────────────────────────────┐
+│  Select Deck        [Done]  │ Sheet header
+│                             │
+│  ● Spanish (current)        │ Radio list
+│  ○ Japanese                 │
+│  ○ French                   │
+│                             │
+└─────────────────────────────┘
+```
+
+- Style: Half-height sheet (.medium detent)
+- Background: .regularMaterial
+- List: Radio selection (only one selected)
+- Done button: Dismiss sheet
+
+**Accessibility**:
+- VoiceOver: "Front field. Question or context. Text editor."
+- All fields: accessibilityLabel + accessibilityHint
+- Save button: "Save card. Disabled. Front and back text required." (when disabled)
+
+**Validation Rules**:
+- Front: Required, 1-500 characters
+- Back: Required, 1-500 characters
+- Deck: Auto-selected (always has value)
+
+**Error States**:
+- Empty fields: Save button disabled
+- No visual error indicators in MVP (just disable Save)
+- Future: Red border + error message below field
+
+---
+
+## Priority 3: Secondary Screens
+
+### 8. Settings Screen
+
+**Purpose**: Manage subscription, app preferences, support links.
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│  Settings                   │ Navigation bar
+│                             │
+│  Account                    │ Section header
+│  ┌─────────────────────┐   │
+│  │ Restore Purchases   │   │ Row
+│  └─────────────────────┘   │
+│  ┌─────────────────────┐   │
+│  │ Manage Subscription │   │ Row
+│  └─────────────────────┘   │
+│                             │
+│  App                        │ Section header
+│  ┌─────────────────────┐   │
+│  │ Daily Reminder      │   │ Row
+│  │ 9:00 AM          ⌄  │   │ Value
+│  └─────────────────────┘   │
+│                             │
+│  About                      │ Section header
+│  ┌─────────────────────┐   │
+│  │ Privacy Policy      │   │ Row
+│  │ Terms of Service    │   │ Row
+│  │ Support             │   │ Row
+│  │ Version 1.0.0       │   │ Info
+│  └─────────────────────┘   │
+│                             │
+└─────────────────────────────┘ Tab Bar
+```
+
+**Visual Elements**:
+
+**Navigation Bar**:
+- Title: "Settings" (Title 2, centered or left)
+- Background: .ultraThinMaterial
+
+**Section Headers**:
+- Text: "Account", "App", "About"
+- Font: Caption (.caption, rounded), Semibold
+- Color: .secondary
+- All caps: Yes
+- Padding: 16pt left, 8pt top/bottom
+
+**Settings Rows**:
+
+**Style**: Standard iOS grouped list
+- Background: .regularMaterial
+- Corner radius: 12pt
+- Rows separated by divider (opacity 0.05)
+
+**Row Content**:
+- Label: Headline (.headline, rounded), Semibold, .primary
+- Value: Body (.body), Regular, .secondary (right-aligned)
+- Chevron: "chevron.right", 16pt, .secondary (if navigates)
+- Height: 44pt minimum
+- Padding: 12pt horizontal
+
+**Account Section**:
+
+**Restore Purchases**:
+- Label: "Restore Purchases"
+- Action: Call Adapty.restorePurchases()
+- Loading: Show spinner during restore
+- Success: Toast "Purchases restored"
+- Error: Alert "No purchases found"
+
+**Manage Subscription**:
+- Label: "Manage Subscription"
+- Value: "Premium" or "Free" (if applicable)
+- Chevron: Yes
+- Action: Open URL to App Store subscription management
+
+**App Section**:
+
+**Daily Reminder**:
+- Label: "Daily Reminder"
+- Value: "9:00 AM" (example, current time)
+- Chevron: Yes
+- Action: Show time picker sheet
+- Note: Request notification permission if not granted
+
+**Time Picker Sheet**:
+```
+┌─────────────────────────────┐
+│  Daily Reminder     [Done]  │
+│                             │
+│  ┌───────────────────────┐ │
+│  │   [9]  :  [00]  [AM]  │ │ Picker
+│  └───────────────────────┘ │
+│                             │
+│  Get reminded to review     │ Help text
+│  your cards every day       │
+│                             │
+└─────────────────────────────┘
+```
+
+- Style: Half-height sheet
+- Picker: iOS DatePicker (time only)
+- Done: Save time to UserDefaults, schedule notification
+
+**About Section**:
+
+**Privacy Policy**:
+- Label: "Privacy Policy"
+- Chevron: Yes
+- Action: Open URL in Safari (or in-app web view)
+
+**Terms of Service**:
+- Label: "Terms of Service"
+- Chevron: Yes
+- Action: Open URL in Safari
+
+**Support**:
+- Label: "Support"
+- Chevron: Yes
+- Action: Open mailto link or support URL
+
+**Version**:
+- Label: "Version"
+- Value: "1.0.0" (build number from Bundle)
+- No chevron (info only)
+- Color: .secondary
+
+**Background**:
+- .ultraThinMaterial
+
+**Accessibility**:
+- VoiceOver: "Restore Purchases. Button."
+- Each row: Proper label + action hint
+
+---
+
+### 9. Empty States (Various)
+
+**Purpose**: Guide users when no content, maintain engagement.
+
+#### No Due Cards (Review Screen)
+
+**Layout**:
+```
+┌─────────────────────────────┐
+│  [Close]                    │
+│                             │
+│          🎉                 │ Emoji (48pt)
+│                             │
+│      All caught up!         │ Title 2, Bold
+│                             │
+│   You reviewed X cards      │ Body, Secondary
+│   Come back tomorrow        │
+│                             │
+│     [Done]                  │ Primary button
+│                             │
+└─────────────────────────────┘
+```
+
+**Elements**:
+- Celebration emoji: 🎉
+- Headline: "All caught up!"
+- Subtext: Dynamic ("You reviewed {count} cards")
+- Done button: Dismiss to Deck List
+
+#### No Cards in Widget
+
+**Small/Medium Widget**:
+```
+┌───────────────┐
+│      🎉       │ Emoji
+│   All done!   │ Headline
+│   Tomorrow    │ Subtext
+└───────────────┘
+```
+
+**Large Widget**:
+```
+┌───────────────────────┐
+│         🎉            │
+│   All done for today! │
+│                       │
+│  Create cards to      │
+│  start reviewing      │
+│                       │
+│  [Open App]           │
+└───────────────────────┘
+```
+
+#### First Time User Flow
+
+**After Paywall → Main App**:
+1. Show Deck List empty state
+2. User creates first deck
+3. Show Card List empty state
+4. User creates first card
+5. Show brief tip: "Add more cards or start reviewing"
+
+---
+
+## Design Handoff Summary
+
+### All Screens Complete
+
+**Priority 1** ✅:
+1. Onboarding (3 screens)
+2. Paywall (Adapty reference)
+3. Review Session
+4. Interactive Widget (Small/Medium/Large)
+
+**Priority 2** ✅:
+5. Deck List (empty + populated)
+6. Card List (empty + populated)
+7. Card Create/Edit
+
+**Priority 3** ✅:
+8. Settings
+9. Empty States (various)
+
+### Design Assets Summary
+
+**Colors**:
+- Primary: Teal (#14B8A6)
+- Secondary: Green (#10B981)
+- Actions: Green (Easy), Amber (Hard), Red (Again)
+- Semantic colors defined in design_system.md
+
+**Typography**:
+- UI: SF Pro Rounded
+- Content: SF Pro
+- Scales: Large Title → Caption
+- All support Dynamic Type
+
+**Materials**:
+- Background: .ultraThinMaterial
+- Surface: .regularMaterial
+- Elevated: .thickMaterial
+
+**Spacing**:
+- Base: 4pt
+- Common: 8pt, 12pt, 16pt, 20pt, 24pt
+
+**Components**:
+- PrimaryButton, SecondaryButton, IconButton
+- GlassCard, GlassTextField
+- ProgressBar
+- All defined in design_system.md
+
+### Accessibility Compliance
+
+- [x] VoiceOver labels on all interactive elements
+- [x] Dynamic Type support (all text)
+- [x] Color contrast 4.5:1 minimum (tested)
+- [x] Reduce Motion fallbacks (animations)
+- [x] Minimum tap targets 44x44pt
+
+### Ready for Phase 3
+
+**Next**: Create handoff document for swift_dev with:
+- Implementation priorities
+- Technical specifications
+- Component references
+- SwiftUI code examples
+- FSRS integration notes
+- Widget implementation guide
+- Adapty integration steps
+
+---
+
+**Phase 2 (UI Engineer) Complete** ✅
