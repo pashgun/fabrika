@@ -133,7 +133,7 @@ struct StudySessionView: View {
         }
     }
 
-    private func rateCard(rating: Rating) {
+    private func rateCard(rating: AppRating) {
         guard let card = currentCard else { return }
 
         // Update FSRS data

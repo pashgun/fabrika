@@ -1,11 +1,20 @@
 import Foundation
 import FSRS
 
-enum Rating: Int {
+enum AppRating: Int {
     case again = 1
     case hard = 2
     case good = 3
     case easy = 4
+
+    var fsrsRating: Rating {
+        switch self {
+        case .again: return .again
+        case .hard: return .hard
+        case .good: return .good
+        case .easy: return .easy
+        }
+    }
 }
 
 class FSRSService {
@@ -15,7 +24,7 @@ class FSRSService {
         self.fsrs = FSRS()
     }
 
-    func processReview(card: Flashcard, rating: Rating, now: Date = Date()) -> FSRSData {
+    func processReview(card: Flashcard, rating: AppRating, now: Date = Date()) -> FSRSData {
         guard let fsrsData = card.fsrsData else {
             return FSRSData()
         }
@@ -35,8 +44,8 @@ class FSRSService {
         // Create SchedulingInfo
         let schedulingInfo = fsrs.repeat(card: fsrsCard, now: now)
 
-        // Get the appropriate record based on rating
-        let recordingLog: RecordLog
+        // Get the appropriate record based on rating (using FSRS Rating enum)
+        let recordingLog: RecordLogItem
         switch rating {
         case .again:
             recordingLog = schedulingInfo[.again]!
