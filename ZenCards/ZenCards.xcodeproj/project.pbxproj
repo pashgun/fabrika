@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02D7922DBE1E17452E1EBA4C /* RateCardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A80A65F428AA36419F83569 /* RateCardIntent.swift */; };
+		02E4023AB2983C15CDBB17DC /* DeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF06F231272B061941C0D1 /* DeckListView.swift */; };
+		0ACCBD35D5BEBA90A1CDA07C /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF73F9A5B32C1A99838C5A95 /* FlashcardView.swift */; };
+		17510778FC279CB175DE614A /* ZenCardsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB6374F7D3F3F9F6C6DB23 /* ZenCardsWidget.swift */; };
+		1EE3B52E370553FEA9AEDBB0 /* ZenCardsWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BB8D1473AEC14CCD400B4B8C /* ZenCardsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		22678B6B4E58CFD0BF0B52EC /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9906CF754A210A25DD8E /* GlassCard.swift */; };
+		332FB0FA460452DE2E26A1A7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0CAEEB9F9797947A0036A /* Card.swift */; };
+		373E248E4BDEFDA5474C1181 /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9138836809A40421457A5AF /* SampleDataHelper.swift */; };
+		5674041971C82C5163B0ADD2 /* FSRS in Frameworks */ = {isa = PBXBuildFile; productRef = 81BD50B06E5CE70AAB43F24E /* FSRS */; };
+		5731B481A6F900D296BAF22E /* ReviewRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8341D817363EB64656132B3 /* ReviewRecord.swift */; };
+		6279F4D03D76F4E9C368D536 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE2B486A81FDAE5F90995A /* Deck.swift */; };
+		67D3DE2780BBBFADD4A5DBAA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0CAEEB9F9797947A0036A /* Card.swift */; };
+		6FCF61A9D196FE99B29389F3 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1F0C829E0DD10706CDF60 /* ActionButton.swift */; };
+		7B2AE98F7E5DCAEEC36F09CA /* FSRSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794F46402C4914BEC12FB48 /* FSRSService.swift */; };
+		811482BBDCDFE01A4160AF78 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE2B486A81FDAE5F90995A /* Deck.swift */; };
+		89A69E37A2EE32E81EA225BF /* FSRS in Frameworks */ = {isa = PBXBuildFile; productRef = 683C352CF38B3385176F544A /* FSRS */; };
+		93F2F2D7AE8326A33DDD2F3E /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04884940A115D2597BC23139 /* SecondaryButton.swift */; };
+		94D0FF38A64175DC05B014F0 /* FSRSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794F46402C4914BEC12FB48 /* FSRSService.swift */; };
+		9A099D887AE1290DA16CF0B5 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BCD00B70786758B6DF9422 /* Color+Hex.swift */; };
+		9BBEEDB28A08A9BAC6267485 /* ReviewRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8341D817363EB64656132B3 /* ReviewRecord.swift */; };
+		A08F52E1DCBC51C601FD7888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F76251749FD3EDE41E6AD2 /* ContentView.swift */; };
+		A23F901B9CC3F931613224B1 /* DeckEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA0D97BA67DC87B3D6F7A /* DeckEditView.swift */; };
+		A4881804D5D666ADADD04AA2 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989A08D63244895CCAFE719 /* EmptyStateView.swift */; };
+		B877CAC6FB917139459106A4 /* TTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4578B87CF6072B838E810 /* TTSService.swift */; };
+		BC068561AFD4A5374A3C6A36 /* ReviewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8853D929D89A10AB89115DB /* ReviewSessionView.swift */; };
+		C1675C174D3526836155E47E /* ZenCardsWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56441BBA8B522D771B04F45 /* ZenCardsWidgetProvider.swift */; };
+		C746B5B11781BA7EF685BFDC /* ZenCardsWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F788A2478AB426133706AC73 /* ZenCardsWidgetViews.swift */; };
+		C79BEE769B518F8BB6EAB559 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B65D4182B5AE26ADC603761 /* PrimaryButton.swift */; };
+		C9407D5BAD2AF21342DED0B2 /* CardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796F73E7CC570666E1199F /* CardEditView.swift */; };
+		D06F12463749E8B006DC96C5 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399818FF5ADF8592358E47DB /* CardListView.swift */; };
+		DA1B191311D45A08C5BC62A9 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BCD00B70786758B6DF9422 /* Color+Hex.swift */; };
+		E7429BD2EEA87AE3CDFE03F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7ABC0D30521D764533B88 /* SettingsView.swift */; };
+		E9FA13D39E938D9E6BE2E11C /* ZenCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD8BBD2B13EA4B99083A8B /* ZenCardsApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7613B802E0D336D53608122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 104D127FA0968AE7C2BA2677 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37C750F2A3A9D0B74EF9FB38;
+			remoteInfo = ZenCardsWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		587C2A7BC35EED9D1F9BE280 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1EE3B52E370553FEA9AEDBB0 /* ZenCardsWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04884940A115D2597BC23139 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		0FC18E37E55074F6120E0D8D /* ZenCards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenCards.entitlements; sourceTree = "<group>"; };
+		2C1091F7AC0984BED63849FE /* ZenCardsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenCardsWidget.entitlements; sourceTree = "<group>"; };
+		399818FF5ADF8592358E47DB /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		525B9906CF754A210A25DD8E /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		53F76251749FD3EDE41E6AD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5B796F73E7CC570666E1199F /* CardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditView.swift; sourceTree = "<group>"; };
+		5F7AD43F858367DA71E68A74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		67DB6374F7D3F3F9F6C6DB23 /* ZenCardsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenCardsWidget.swift; sourceTree = "<group>"; };
+		6B65D4182B5AE26ADC603761 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		6CEF06F231272B061941C0D1 /* DeckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListView.swift; sourceTree = "<group>"; };
+		8989A08D63244895CCAFE719 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		8A80A65F428AA36419F83569 /* RateCardIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCardIntent.swift; sourceTree = "<group>"; };
+		8BC0CAEEB9F9797947A0036A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9E58F4C397B9679F2CF56C6F /* ZenCards.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ZenCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4DE2B486A81FDAE5F90995A /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		BB8D1473AEC14CCD400B4B8C /* ZenCardsWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ZenCardsWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8BCD00B70786758B6DF9422 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		C9138836809A40421457A5AF /* SampleDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataHelper.swift; sourceTree = "<group>"; };
+		CBB4578B87CF6072B838E810 /* TTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSService.swift; sourceTree = "<group>"; };
+		CF73F9A5B32C1A99838C5A95 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+		D7D678112CEF165EE5F5DAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DBECA0D97BA67DC87B3D6F7A /* DeckEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditView.swift; sourceTree = "<group>"; };
+		E1C7ABC0D30521D764533B88 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E56441BBA8B522D771B04F45 /* ZenCardsWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenCardsWidgetProvider.swift; sourceTree = "<group>"; };
+		E794F46402C4914BEC12FB48 /* FSRSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRSService.swift; sourceTree = "<group>"; };
+		E8853D929D89A10AB89115DB /* ReviewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSessionView.swift; sourceTree = "<group>"; };
+		F0E1F0C829E0DD10706CDF60 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		F788A2478AB426133706AC73 /* ZenCardsWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenCardsWidgetViews.swift; sourceTree = "<group>"; };
+		F8341D817363EB64656132B3 /* ReviewRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRecord.swift; sourceTree = "<group>"; };
+		F8AD8BBD2B13EA4B99083A8B /* ZenCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenCardsApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14F096FECF186027509BA3BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5674041971C82C5163B0ADD2 /* FSRS in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D933227FDDF8B3E9996BC414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A69E37A2EE32E81EA225BF /* FSRS in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		105A5D5F229D8146A3FDF305 /* Models (Shared) */ = {
+			isa = PBXGroup;
+			children = (
+				8BC0CAEEB9F9797947A0036A /* Card.swift */,
+				A4DE2B486A81FDAE5F90995A /* Deck.swift */,
+				F8341D817363EB64656132B3 /* ReviewRecord.swift */,
+			);
+			name = "Models (Shared)";
+			path = Models;
+			sourceTree = "<group>";
+		};
+		115C600EE8DCA22B2AB1BB8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F788A2478AB426133706AC73 /* ZenCardsWidgetViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		208CE1A8BF9406115AE9715E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1F0C829E0DD10706CDF60 /* ActionButton.swift */,
+				8989A08D63244895CCAFE719 /* EmptyStateView.swift */,
+				525B9906CF754A210A25DD8E /* GlassCard.swift */,
+				6B65D4182B5AE26ADC603761 /* PrimaryButton.swift */,
+				04884940A115D2597BC23139 /* SecondaryButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2986FE3F11BDD20E9CAA0AD7 = {
+			isa = PBXGroup;
+			children = (
+				730FDD8B0EB452DA3842F611 /* ZenCards */,
+				90C48FBDE1525B53A6A48DFC /* ZenCardsWidget */,
+				905A4AF4E959952153F235FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3CFB30DBCFA40A7161D13665 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				5B796F73E7CC570666E1199F /* CardEditView.swift */,
+				399818FF5ADF8592358E47DB /* CardListView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		57E561ACB5CEA1C78334BE93 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E794F46402C4914BEC12FB48 /* FSRSService.swift */,
+				CBB4578B87CF6072B838E810 /* TTSService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		730FDD8B0EB452DA3842F611 /* ZenCards */ = {
+			isa = PBXGroup;
+			children = (
+				53F76251749FD3EDE41E6AD2 /* ContentView.swift */,
+				D7D678112CEF165EE5F5DAB5 /* Info.plist */,
+				C9138836809A40421457A5AF /* SampleDataHelper.swift */,
+				0FC18E37E55074F6120E0D8D /* ZenCards.entitlements */,
+				F8AD8BBD2B13EA4B99083A8B /* ZenCardsApp.swift */,
+				FAABBE92CA82A0E9295753CA /* Extensions */,
+				105A5D5F229D8146A3FDF305 /* Models (Shared) */,
+				57E561ACB5CEA1C78334BE93 /* Services */,
+				9E7C8FF324C4825755BDD1E5 /* Views */,
+			);
+			name = ZenCards;
+			path = ZenCards;
+			sourceTree = "<group>";
+		};
+		82036224D6FFCA11C22F0FA7 /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				DBECA0D97BA67DC87B3D6F7A /* DeckEditView.swift */,
+				6CEF06F231272B061941C0D1 /* DeckListView.swift */,
+			);
+			path = Decks;
+			sourceTree = "<group>";
+		};
+		905A4AF4E959952153F235FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E58F4C397B9679F2CF56C6F /* ZenCards.app */,
+				BB8D1473AEC14CCD400B4B8C /* ZenCardsWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90C48FBDE1525B53A6A48DFC /* ZenCardsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AD43F858367DA71E68A74 /* Info.plist */,
+				2C1091F7AC0984BED63849FE /* ZenCardsWidget.entitlements */,
+				67DB6374F7D3F3F9F6C6DB23 /* ZenCardsWidget.swift */,
+				E56441BBA8B522D771B04F45 /* ZenCardsWidgetProvider.swift */,
+				B40D3A468C818CE652322F9C /* Intents */,
+				115C600EE8DCA22B2AB1BB8C /* Views */,
+			);
+			name = ZenCardsWidget;
+			path = ZenCardsWidget;
+			sourceTree = "<group>";
+		};
+		9E7C8FF324C4825755BDD1E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB30DBCFA40A7161D13665 /* Cards */,
+				208CE1A8BF9406115AE9715E /* Components */,
+				82036224D6FFCA11C22F0FA7 /* Decks */,
+				E27A0D73B1DB365C04344B41 /* Review */,
+				E479C77D7AE85750BD1A699B /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B40D3A468C818CE652322F9C /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				8A80A65F428AA36419F83569 /* RateCardIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		E27A0D73B1DB365C04344B41 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				CF73F9A5B32C1A99838C5A95 /* FlashcardView.swift */,
+				E8853D929D89A10AB89115DB /* ReviewSessionView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		E479C77D7AE85750BD1A699B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E1C7ABC0D30521D764533B88 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FAABBE92CA82A0E9295753CA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C8BCD00B70786758B6DF9422 /* Color+Hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37C750F2A3A9D0B74EF9FB38 /* ZenCardsWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EBFC6311D83532BAEA2BFAA /* Build configuration list for PBXNativeTarget "ZenCardsWidget" */;
+			buildPhases = (
+				BC9642616F56684B293E2F35 /* Sources */,
+				D933227FDDF8B3E9996BC414 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZenCardsWidget;
+			packageProductDependencies = (
+				683C352CF38B3385176F544A /* FSRS */,
+			);
+			productName = ZenCardsWidget;
+			productReference = BB8D1473AEC14CCD400B4B8C /* ZenCardsWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		944EF89F7AD4A7960FEC066E /* ZenCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A8DB9F2E9547ED05FE4189 /* Build configuration list for PBXNativeTarget "ZenCards" */;
+			buildPhases = (
+				565712EDC9455626E07244E9 /* Sources */,
+				14F096FECF186027509BA3BC /* Frameworks */,
+				587C2A7BC35EED9D1F9BE280 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0233896CA35C57ACB3372CE /* PBXTargetDependency */,
+			);
+			name = ZenCards;
+			packageProductDependencies = (
+				81BD50B06E5CE70AAB43F24E /* FSRS */,
+			);
+			productName = ZenCards;
+			productReference = 9E58F4C397B9679F2CF56C6F /* ZenCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		104D127FA0968AE7C2BA2677 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 292DBE72A63E566A4A61729D /* Build configuration list for PBXProject "ZenCards" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2986FE3F11BDD20E9CAA0AD7;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0FCC6828E20E1249AAD09253 /* XCRemoteSwiftPackageReference "swift-fsrs" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				944EF89F7AD4A7960FEC066E /* ZenCards */,
+				37C750F2A3A9D0B74EF9FB38 /* ZenCardsWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		565712EDC9455626E07244E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FCF61A9D196FE99B29389F3 /* ActionButton.swift in Sources */,
+				67D3DE2780BBBFADD4A5DBAA /* Card.swift in Sources */,
+				C9407D5BAD2AF21342DED0B2 /* CardEditView.swift in Sources */,
+				D06F12463749E8B006DC96C5 /* CardListView.swift in Sources */,
+				DA1B191311D45A08C5BC62A9 /* Color+Hex.swift in Sources */,
+				A08F52E1DCBC51C601FD7888 /* ContentView.swift in Sources */,
+				6279F4D03D76F4E9C368D536 /* Deck.swift in Sources */,
+				A23F901B9CC3F931613224B1 /* DeckEditView.swift in Sources */,
+				02E4023AB2983C15CDBB17DC /* DeckListView.swift in Sources */,
+				A4881804D5D666ADADD04AA2 /* EmptyStateView.swift in Sources */,
+				94D0FF38A64175DC05B014F0 /* FSRSService.swift in Sources */,
+				0ACCBD35D5BEBA90A1CDA07C /* FlashcardView.swift in Sources */,
+				22678B6B4E58CFD0BF0B52EC /* GlassCard.swift in Sources */,
+				C79BEE769B518F8BB6EAB559 /* PrimaryButton.swift in Sources */,
+				5731B481A6F900D296BAF22E /* ReviewRecord.swift in Sources */,
+				BC068561AFD4A5374A3C6A36 /* ReviewSessionView.swift in Sources */,
+				373E248E4BDEFDA5474C1181 /* SampleDataHelper.swift in Sources */,
+				93F2F2D7AE8326A33DDD2F3E /* SecondaryButton.swift in Sources */,
+				E7429BD2EEA87AE3CDFE03F6 /* SettingsView.swift in Sources */,
+				B877CAC6FB917139459106A4 /* TTSService.swift in Sources */,
+				E9FA13D39E938D9E6BE2E11C /* ZenCardsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9642616F56684B293E2F35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				332FB0FA460452DE2E26A1A7 /* Card.swift in Sources */,
+				9A099D887AE1290DA16CF0B5 /* Color+Hex.swift in Sources */,
+				811482BBDCDFE01A4160AF78 /* Deck.swift in Sources */,
+				7B2AE98F7E5DCAEEC36F09CA /* FSRSService.swift in Sources */,
+				02D7922DBE1E17452E1EBA4C /* RateCardIntent.swift in Sources */,
+				9BBEEDB28A08A9BAC6267485 /* ReviewRecord.swift in Sources */,
+				17510778FC279CB175DE614A /* ZenCardsWidget.swift in Sources */,
+				C1675C174D3526836155E47E /* ZenCardsWidgetProvider.swift in Sources */,
+				C746B5B11781BA7EF685BFDC /* ZenCardsWidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0233896CA35C57ACB3372CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37C750F2A3A9D0B74EF9FB38 /* ZenCardsWidget */;
+			targetProxy = E7613B802E0D336D53608122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8111B7469F38BCAE68CA0B7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ZenCardsWidget/ZenCardsWidget.entitlements;
+				INFOPLIST_FILE = ZenCardsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zencards.app.widget;
+				PRODUCT_NAME = ZenCardsWidget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84B0BE7BF6BE30B2FB098192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZenCards/ZenCards.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ZenCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zencards.app;
+				PRODUCT_NAME = ZenCards;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8D2A9E55E5AE39ADE27EF880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AF9F651883CD026DD6506DA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ZenCardsWidget/ZenCardsWidget.entitlements;
+				INFOPLIST_FILE = ZenCardsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zencards.app.widget;
+				PRODUCT_NAME = ZenCardsWidget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E11F8873C62F5EF8DD5BED82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZenCards/ZenCards.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ZenCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zencards.app;
+				PRODUCT_NAME = ZenCards;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA330F33BC3184A39103CF9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		292DBE72A63E566A4A61729D /* Build configuration list for PBXProject "ZenCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA330F33BC3184A39103CF9D /* Debug */,
+				8D2A9E55E5AE39ADE27EF880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3EBFC6311D83532BAEA2BFAA /* Build configuration list for PBXNativeTarget "ZenCardsWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9F651883CD026DD6506DA6 /* Debug */,
+				8111B7469F38BCAE68CA0B7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F5A8DB9F2E9547ED05FE4189 /* Build configuration list for PBXNativeTarget "ZenCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11F8873C62F5EF8DD5BED82 /* Debug */,
+				84B0BE7BF6BE30B2FB098192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0FCC6828E20E1249AAD09253 /* XCRemoteSwiftPackageReference "swift-fsrs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/open-spaced-repetition/swift-fsrs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		683C352CF38B3385176F544A /* FSRS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FCC6828E20E1249AAD09253 /* XCRemoteSwiftPackageReference "swift-fsrs" */;
+			productName = FSRS;
+		};
+		81BD50B06E5CE70AAB43F24E /* FSRS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FCC6828E20E1249AAD09253 /* XCRemoteSwiftPackageReference "swift-fsrs" */;
+			productName = FSRS;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 104D127FA0968AE7C2BA2677 /* Project object */;
+}
