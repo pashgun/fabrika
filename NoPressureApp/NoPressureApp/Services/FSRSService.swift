@@ -1,0 +1,86 @@
+import Foundation
+import FSRS
+
+enum Rating: Int {
+    case again = 1
+    case hard = 2
+    case good = 3
+    case easy = 4
+}
+
+class FSRSService {
+    private let fsrs: FSRS
+
+    init() {
+        self.fsrs = FSRS()
+    }
+
+    func processReview(card: Flashcard, rating: Rating, now: Date = Date()) -> FSRSData {
+        guard let fsrsData = card.fsrsData else {
+            return FSRSData()
+        }
+
+        // Create FSRS Card from our model
+        let fsrsCard = Card(
+            due: fsrsData.nextReview ?? now,
+            stability: fsrsData.stability,
+            difficulty: fsrsData.difficulty,
+            elapsedDays: 0,
+            scheduledDays: 0,
+            reps: fsrsData.reps,
+            lapses: fsrsData.lapses,
+            state: fsrsData.reps == 0 ? .new : .review
+        )
+
+        // Create SchedulingInfo
+        let schedulingInfo = fsrs.repeat(card: fsrsCard, now: now)
+
+        // Get the appropriate record based on rating
+        let recordingLog: RecordLog
+        switch rating {
+        case .again:
+            recordingLog = schedulingInfo[.again]!
+        case .hard:
+            recordingLog = schedulingInfo[.hard]!
+        case .good:
+            recordingLog = schedulingInfo[.good]!
+        case .easy:
+            recordingLog = schedulingInfo[.easy]!
+        }
+
+        // Update FSRSData
+        let updatedData = FSRSData(
+            difficulty: recordingLog.card.difficulty,
+            stability: recordingLog.card.stability,
+            retrievability: 0.9, // Will be calculated by FSRS
+            lastReview: now,
+            nextReview: recordingLog.card.due,
+            reps: recordingLog.card.reps,
+            lapses: recordingLog.card.lapses
+        )
+
+        return updatedData
+    }
+
+    func getDueCards(from decks: [Deck], at date: Date = Date()) -> [Flashcard] {
+        var dueCards: [Flashcard] = []
+
+        for deck in decks {
+            for card in deck.cards {
+                guard let fsrsData = card.fsrsData else { continue }
+
+                // Card is due if nextReview is nil (new card) or nextReview is before/equal to current date
+                if let nextReview = fsrsData.nextReview {
+                    if nextReview <= date {
+                        dueCards.append(card)
+                    }
+                } else {
+                    // New cards are always due
+                    dueCards.append(card)
+                }
+            }
+        }
+
+        return dueCards
+    }
+}
