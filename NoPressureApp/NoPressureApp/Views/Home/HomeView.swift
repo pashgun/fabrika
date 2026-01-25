@@ -1,8 +1,11 @@
 import SwiftUI
 import SwiftData
+import FabrikaAnalytics
 
 struct HomeView: View {
     @Query private var decks: [Deck]
+    @Environment(\.analyticsService) private var analytics
+    @Environment(\.modelContext) private var modelContext
     @State private var userName = "Friend"
 
     var body: some View {
@@ -135,6 +138,9 @@ struct HomeView: View {
                 }
             }
             .navigationBarHidden(true)
+            .onAppear {
+                analytics.trackScreen("Home", context: modelContext)
+            }
         }
     }
 

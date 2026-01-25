@@ -1,15 +1,18 @@
 import SwiftUI
 import SwiftData
+import FabrikaAnalytics
 
 struct StudySessionView: View {
     let deck: Deck
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.analyticsService) private var analytics
 
     @State private var currentCardIndex = 0
     @State private var isFlipped = false
     @State private var cardsReviewed = 0
     @State private var showingComplete = false
+    @State private var sessionStartTime = Date()
 
     private let fsrsService = FSRSService()
 
@@ -131,6 +134,25 @@ struct StudySessionView: View {
                 onDismiss: { dismiss() }
             )
         }
+        .onAppear {
+            sessionStartTime = Date()
+
+            // Track session start
+            let event = FlashcardEvent.studySessionStarted(
+                deckName: deck.name,
+                dueCardsCount: dueCards.count
+            )
+            analytics.track(event, context: modelContext)
+        }
+        .onDisappear {
+            // Track session end
+            let duration = Date().timeIntervalSince(sessionStartTime)
+            let event = FlashcardEvent.studySessionCompleted(
+                cardsReviewed: cardsReviewed,
+                duration: duration
+            )
+            analytics.track(event, context: modelContext)
+        }
     }
 
     private func rateCard(rating: AppRating) {
@@ -140,6 +162,14 @@ struct StudySessionView: View {
         let updatedData = fsrsService.processReview(card: card, rating: rating)
         card.fsrsData = updatedData
         deck.lastStudied = Date()
+
+        // Track card rating
+        let cardAge = Date().timeIntervalSince(card.createdAt)
+        let event = FlashcardEvent.cardRated(
+            rating: "\(rating)",
+            cardAge: cardAge
+        )
+        analytics.track(event, context: modelContext)
 
         // Save context
         try? modelContext.save()

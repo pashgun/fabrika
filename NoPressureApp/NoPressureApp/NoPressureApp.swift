@@ -1,9 +1,11 @@
 import SwiftUI
 import SwiftData
+import FabrikaAnalytics
 
 @main
 struct NoPressureApp: App {
     let modelContainer: ModelContainer
+    let analyticsService: AnalyticsService
 
     init() {
         do {
@@ -11,7 +13,10 @@ struct NoPressureApp: App {
                 User.self,
                 Deck.self,
                 Flashcard.self,
-                FSRSData.self
+                FSRSData.self,
+                AnalyticsEventRecord.self,
+                SessionRecord.self,
+                PrivacyConsent.self
             ])
 
             let modelConfiguration = ModelConfiguration(
@@ -23,6 +28,15 @@ struct NoPressureApp: App {
                 for: schema,
                 configurations: [modelConfiguration]
             )
+
+            // Initialize analytics (MVP: local only, no cloud services)
+            let config = AnalyticsConfiguration(
+                enableAmplitude: false,
+                enableAppsFlyer: false,
+                enableCloudSync: false,
+                hasUserConsent: true  // Always track locally
+            )
+            analyticsService = AnalyticsService(configuration: config)
 
             // Create sample data for development
             #if DEBUG
@@ -36,6 +50,7 @@ struct NoPressureApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.analyticsService, analyticsService)
         }
         .modelContainer(modelContainer)
     }
@@ -89,5 +104,18 @@ struct NoPressureApp: App {
 
         // Save
         try? context.save()
+    }
+}
+
+// MARK: - Analytics Environment Key
+
+private struct AnalyticsServiceKey: EnvironmentKey {
+    static let defaultValue = AnalyticsService(configuration: .default)
+}
+
+extension EnvironmentValues {
+    var analyticsService: AnalyticsService {
+        get { self[AnalyticsServiceKey.self] }
+        set { self[AnalyticsServiceKey.self] = newValue }
     }
 }

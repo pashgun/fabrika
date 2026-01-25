@@ -1,8 +1,11 @@
 import SwiftUI
 import SwiftData
+import FabrikaAnalytics
 
 struct LibraryView: View {
     @Query private var decks: [Deck]
+    @Environment(\.analyticsService) private var analytics
+    @Environment(\.modelContext) private var modelContext
     @State private var searchText = ""
     @State private var selectedFilter: FilterOption = .all
 
@@ -126,6 +129,9 @@ struct LibraryView: View {
             }
             .navigationTitle("Library")
             .navigationBarTitleDisplayMode(.large)
+            .onAppear {
+                analytics.trackScreen("Library", context: modelContext)
+            }
         }
     }
 }
