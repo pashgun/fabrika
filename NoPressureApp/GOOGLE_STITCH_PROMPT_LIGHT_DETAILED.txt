@@ -1,571 +1,74 @@
 Design a complete iOS 26 mobile flashcard app called "No Pressure Flashcards" with 16 screens in LIGHT THEME using modern iOS design with photo cards and glassmorphism.
 
 ═══════════════════════════════════════════════════════════════════════════════
-VISUAL DESIGN SYSTEM
+VISUAL STYLE
 ═══════════════════════════════════════════════════════════════════════════════
 
-COLORS:
-- Background: Clean white #FFFFFF and light gray #F8F9FA
-- Primary accent: Bright blue #0A84FF (iOS system blue)
-- Secondary accents: Soft purple #BF5AF2, Coral #FF6B6B, Green #34C759
-- Text primary: Dark gray #1C1C1E
-- Text secondary: Medium gray #8E8E93
-- Text tertiary: Light gray #C7C7CC
-
-TYPOGRAPHY:
-- Title Large: SF Pro Display, 34pt Bold, #1C1C1E
-- Title 1: SF Pro Display, 28pt Bold, #1C1C1E
-- Title 2: SF Pro Display, 22pt Bold, #1C1C1E
-- Headline: SF Pro Display, 17pt Semibold, #1C1C1E
-- Body: SF Pro Text, 17pt Regular, #1C1C1E
-- Subheadline: SF Pro Text, 15pt Regular, #8E8E93
-- Caption: SF Pro Text, 12pt Regular, #C7C7CC
-
-PHOTO CARD STYLE:
-- Large photo backgrounds with rounded corners (16-24px)
-- High quality lifestyle photography: mountains, coffee shops, study scenes, nature, landmarks, travel
-- Warm, inviting color palette in photos (golden hour lighting, natural tones)
-- Professional photography look (sharp, well-composed, aspirational)
-- Photos used as card backgrounds with text overlays
-
-GLASS OVERLAY EFFECT:
-- White frosted overlay: 60-80% opacity on photo cards
-- Subtle drop shadow: rgba(0,0,0,0.08), 12px blur, 4px offset
-- Text readability gradient: Dark gradient overlay (rgba(0,0,0,0.3) to transparent) on photos where text appears
-- Border: 1px solid rgba(0,0,0,0.05) for card separation
-
-SHADOWS & DEPTH:
-- Card shadows: 0px 2px 8px rgba(0,0,0,0.08)
-- Button shadows: 0px 4px 12px rgba(10,132,255,0.25) for primary buttons
-- Elevated elements: 0px 8px 24px rgba(0,0,0,0.12)
+- Clean white/light gray backgrounds (#FFFFFF, #F8F9FA)
+- Bright blue #0A84FF as primary accent (iOS system blue)
+- Large photo cards with lifestyle photography (mountains, cafes, study scenes, nature, landmarks)
+- Warm, inviting photos with golden hour lighting
+- Text overlays with dark gradients for readability
+- SF Pro typography, modern iOS spacing and shadows
 
 ═══════════════════════════════════════════════════════════════════════════════
-SCREEN DESIGNS (iPhone 15 Pro format, 9:19.5 ratio)
+16 SCREENS
 ═══════════════════════════════════════════════════════════════════════════════
 
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 1: WELCOME
-───────────────────────────────────────────────────────────────────────────────
+Full-screen photo of woman studying with coffee in warm cafe. "No Pressure Flashcards" title and "Learn at your own pace" subtitle in white text. Large blue "Get Started" button at bottom.
 
-LAYOUT DESCRIPTION:
-Full-screen photo background showing a woman in her 20s-30s studying with coffee in warm cafe scene (golden hour light, laptop, notebook, cozy atmosphere). Dark gradient overlay at bottom. Large "No Pressure Flashcards" title in white text (34pt Bold) centered at 60% from top. Subtitle "Learn at your own pace" in white with 80% opacity (17pt Regular) below title with 12pt spacing. Large bright blue "Get Started" button centered 80px from bottom.
+SCREEN 2: ONBOARDING - Snap & Learn
+White background. Large photo card showing Eiffel Tower with camera icon 📷. "Snap & Learn" title on photo. Description: "AI creates flashcards from photos, PDFs, or text". Progress dots 1/3.
 
-Photo Specs:
-- Subject: Woman in her 20s-30s studying in modern coffee shop
-- Lighting: Warm, natural window light (golden hour)
-- Mood: Calm, focused, inviting
-- Colors: Warm browns, soft whites, green plants, golden tones
-- Composition: Rule of thirds, shallow depth of field
-- Props: MacBook, coffee cup, notebook, pen, green plants
+SCREEN 3: ONBOARDING - No Guilt
+Photo card with peaceful mountain/forest scene. Heart icon ❤️. "No Guilt, No Burnout" title. Description: "Miss a day? No problem. No streaks, no pressure." Progress dots 2/3.
 
-Text Placement:
-- Title: Centered, 60% from top, white text with subtle shadow
-- Subtitle: Centered, below title with 12pt spacing, white 80% opacity
-- Button: Centered, 80px from bottom, full width minus 48px padding
+SCREEN 4: ONBOARDING - Smart Repetition
+Photo card with study desk from above. Brain icon 🧠. "Smart Repetition" title. Description: "FSRS algorithm shows cards at optimal time". Progress dots 3/3.
 
-Button Style:
-- Background: Solid bright blue #0A84FF
-- Text: White, 17pt Semibold
-- Height: 56px
-- Border radius: 16px
-- Shadow: 0px 4px 12px rgba(10,132,255,0.3)
-
-───────────────────────────────────────────────────────────────────────────────
-SCREEN 2: ONBOARDING STEP 1 - Snap & Learn
-───────────────────────────────────────────────────────────────────────────────
-
-LAYOUT DESCRIPTION:
-White background. Large photo card (90% screen width, 400px height, 24px corner radius) showing Eiffel Tower at sunset with dark gradient at bottom. Camera icon (📷 60pt white) centered at 40% from card top. "Snap & Learn" title (28pt Bold white) on photo below icon. Below the card: description text "AI creates flashcards from photos, PDFs, or text" (17pt Regular #1C1C1E, centered). Progress dots at bottom (● ○ ○) showing 1/3, blue for active, gray for inactive.
-
-Photo Card Specs:
-- Size: 90% screen width, 400px height
-- Corner radius: 24px
-- Photo: Iconic landmark (Eiffel Tower, sunset lighting)
-- Overlay gradient: Linear gradient from rgba(0,0,0,0) at top to rgba(0,0,0,0.5) at bottom
-- Shadow: 0px 8px 24px rgba(0,0,0,0.12)
-- Border: 1px solid rgba(0,0,0,0.05)
-
-Icon Style:
-- Camera emoji or SF Symbol camera.fill
-- Size: 60pt
-- Color: White
-- Position: Centered horizontally, 40% from top of card
-- Glow: 0px 4px 16px rgba(255,255,255,0.4)
-
-Description Text:
-- Position: 32px below photo card
-- Width: 85% screen width, centered
-- Line height: 1.4
-- Text align: Center
-
-Progress Dots:
-- Position: Centered, 60px from bottom
-- Dot size: 8px diameter
-- Active dot: #0A84FF
-- Inactive dots: #C7C7CC
-- Spacing: 12px between dots
-
-───────────────────────────────────────────────────────────────────────────────
-SCREEN 3: ONBOARDING STEP 2 - No Guilt
-───────────────────────────────────────────────────────────────────────────────
-
-LAYOUT DESCRIPTION:
-White background. Photo card showing peaceful mountain/forest scene with misty morning light. Heart icon (❤️ 60pt coral/pink) centered on photo. "No Guilt, No Burnout" title (28pt Bold white). Below card: "Miss a day? No problem. No streaks, no pressure." (17pt Regular #1C1C1E, centered). Progress dots (○ ● ○) showing 2/3.
-
-Photo Card Specs:
-- Same dimensions as Screen 2
-- Photo: Serene nature scene (mountains with morning mist, forest path, calm lake)
-- Mood: Peaceful, calming, stress-free
-- Colors: Soft greens, blues, white mist, golden morning light
-- Composition: Wide landscape, minimal clutter
-
-Icon:
-- Heart emoji ❤️ or filled heart symbol
-- Color: Coral #FF6B6B or soft pink
-- Same positioning as Screen 2
-
-───────────────────────────────────────────────────────────────────────────────
-SCREEN 4: ONBOARDING STEP 3 - Smart Repetition
-───────────────────────────────────────────────────────────────────────────────
-
-LAYOUT DESCRIPTION:
-White background. Photo card showing study desk from above (organized books, brain model, minimal aesthetic). Brain icon (🧠 60pt blue). "Smart Repetition" title (28pt Bold white). Below card: "FSRS algorithm shows cards at optimal time" (17pt Regular #1C1C1E, centered). Progress dots (○ ○ ●) showing 3/3.
-
-Photo Specs:
-- Photo: Flat lay of organized study materials (brain imagery, books, flashcards)
-- Angle: Top-down view
-- Style: Clean, minimal, well-organized
-- Colors: White desk, colorful book spines, blue accents
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 5: GOAL SELECTION
-───────────────────────────────────────────────────────────────────────────────
+"What's your goal?" title. 2x2 grid of cards with emojis: 🎓 Ace my exams, 🗣️ Learn a language, 💼 Professional growth, 🧠 General knowledge. Selected card has blue border.
 
-LAYOUT DESCRIPTION:
-White background. "What's your goal?" title (28pt Bold #1C1C1E, centered) at top. 2x2 grid of selection cards below. Each card has emoji (40pt) and text (17pt Semibold): 🎓 "Ace my exams", 🗣️ "Learn a language", 💼 "Professional growth", 🧠 "General knowledge". Selected card has blue border.
-
-Goal Card Specs:
-- Size: 48% screen width, 140px height
-- Background: White
-- Border: 2px solid #E5E5EA (normal state)
-- Border: 2px solid #0A84FF (selected state)
-- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
-- Corner radius: 20px
-- Padding: 20px
-
-Card Content:
-- Emoji: 40pt, centered, 24px from top
-- Text: 17pt Semibold, #1C1C1E, centered, 16px below emoji
-- Selected state: Slight blue tint background rgba(10,132,255,0.05)
-
-Grid:
-- 2 columns, 2 rows
-- Gap: 16px horizontal, 20px vertical
-- Container padding: 24px left/right
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 6: TIME SELECTION
-───────────────────────────────────────────────────────────────────────────────
+"How much time per day?" title. Four vertical cards: ⚡ 5 min "Quick learner", ☕ 15 min "Steady pace", 📚 30 min "Dedicated", 🚀 60 min "Power user".
 
-LAYOUT DESCRIPTION:
-White background. "How much time per day?" title (28pt Bold #1C1C1E, centered). Four vertical cards stacked with emoji, time, subtitle, and chevron: ⚡ "5 min" / "Quick learner", ☕ "15 min" / "Steady pace", 📚 "30 min" / "Dedicated", 🚀 "60 min" / "Power user". Selected card has blue border and tint.
-
-Time Card Specs:
-- Width: 90% screen width
-- Height: 72px
-- Background: White
-- Border: 2px solid #E5E5EA (normal)
-- Border: 2px solid #0A84FF (selected)
-- Corner radius: 16px
-- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
-- Spacing: 12px between cards
-
-Card Content Layout:
-- Emoji: 32pt, left aligned, 20px from left edge
-- Time duration: 17pt Bold, #1C1C1E, 16px to right of emoji
-- Subtitle: 15pt Regular, #8E8E93, below time text with 4px spacing
-- Chevron: 17pt, #C7C7CC, right aligned, 20px from right edge
-
-Selected State:
-- Blue border #0A84FF
-- Blue tint background rgba(10,132,255,0.05)
-- Chevron changes to #0A84FF
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 7: INTERESTS
-───────────────────────────────────────────────────────────────────────────────
+"What interests you?" title. "Select all that apply" subtitle. Pill chips: Science, History, Languages, Math, Medicine, Law, Art, Tech, Business, Music. Selected chips are blue.
 
-LAYOUT DESCRIPTION:
-White background. "What interests you?" title (28pt Bold #1C1C1E, centered). "Select all that apply" subtitle (15pt Regular #8E8E93, centered). Wrapped pill chips below: Science, History, Languages, Math, Medicine, Law, Art, Tech, Business, Music. Selected chips have blue fill with white text.
-
-Chip Specs (Pill Buttons):
-- Height: 40px
-- Padding: 16px horizontal
-- Background: White (unselected)
-- Background: #0A84FF (selected)
-- Border: 1px solid #E5E5EA (unselected)
-- Border: none (selected)
-- Corner radius: 20px (full pill shape)
-- Shadow: 0px 1px 4px rgba(0,0,0,0.06)
-
-Chip Text:
-- Font: 15pt Semibold
-- Color: #1C1C1E (unselected)
-- Color: White (selected)
-
-Layout:
-- Wrapped flow (flex-wrap)
-- Gap: 12px horizontal, 12px vertical
-- Container padding: 24px
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 8: SIGN UP
-───────────────────────────────────────────────────────────────────────────────
+"Create your account" title. Three buttons: "Continue with Apple" (black), "Continue with Google" (white), "Continue with Email" (blue link). Footer: "Terms of Service | Privacy Policy".
 
-LAYOUT DESCRIPTION:
-White background. "Create your account" title (28pt Bold #1C1C1E, centered). Three stacked buttons: "Continue with Apple" (black background, white text with Apple logo), "Continue with Google" (white bg, gray border, dark text with Google logo), "Continue with Email" (blue text link). Footer at bottom: "Terms of Service | Privacy Policy" (12pt Regular #C7C7CC).
-
-Apple Button:
-- Background: #000000 (black)
-- Text: White, 17pt Semibold
-- Icon: Apple logo (SF Symbol), white
-- Height: 56px
-- Corner radius: 16px
-- Shadow: 0px 2px 8px rgba(0,0,0,0.15)
-
-Google Button:
-- Background: White
-- Text: #1C1C1E, 17pt Semibold
-- Icon: Google "G" logo (multicolor)
-- Height: 56px
-- Border: 2px solid #E5E5EA
-- Corner radius: 16px
-- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
-
-Email Link:
-- Text only, no button
-- Color: #0A84FF
-- Position: 24px below Google button
-- Centered
-
-Footer Links:
-- Position: 24px from bottom
-- Centered, separated by " | "
-- Tappable area: 44x44pt minimum
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 9: HOME TAB
-───────────────────────────────────────────────────────────────────────────────
+"Good morning, Alex" greeting. Blue "Create New Cards" button with + icon. Large featured deck card with Mount Fuji photo, "Japanese Basics" title, progress ring (0/20), "Start Learning" button. "Due Today" section with horizontal scroll of 3 small photo deck cards. Bottom: 3-tab bar (🏠 Home selected, 📚 Library, 🔍 Explore).
 
-LAYOUT DESCRIPTION:
-Status bar at top. "Good morning, Alex" greeting (28pt Bold #1C1C1E). Large blue "Create New Cards" button (+ icon, 64px height, blue #0A84FF). Large featured deck card with Mount Fuji photo showing "Japanese Basics" with progress ring (0/20 cards, blue) and "Start Learning" button. "Due Today" section (17pt Semibold) with horizontal scroll of 3 small photo-based deck cards. Bottom tab bar with 3 icons (Home selected): 🏠 Home, 📚 Library, 🔍 Explore.
+SCREEN 10: CREATE OPTIONS (Modal)
+"How will you capture today?" title. Three large photo cards: 📷 "Camera" / "Snap notes or textbook", 📄 "PDF" / "Import documents", ✍️ "Text" / "Paste or type". "Manual Entry" link at bottom.
 
-Create Button:
-- Width: 90% screen width
-- Height: 64px
-- Background: #0A84FF
-- Text: White, 17pt Semibold
-- Icon: + symbol, 24pt, left of text
-- Corner radius: 16px
-- Shadow: 0px 4px 12px rgba(10,132,255,0.3)
-- Position: 20px below greeting
-
-Featured Deck Card (Large):
-- Width: 90% screen width
-- Height: 320px
-- Photo: Landscape landmark (Mount Fuji, scenic view)
-- Corner radius: 24px
-- Shadow: 0px 8px 24px rgba(0,0,0,0.12)
-
-Deck Card Content:
-- Background gradient overlay: rgba(0,0,0,0.4) bottom 50%
-- Deck name: 22pt Bold, white, 24px from bottom
-- Progress ring: 120px diameter, blue stroke, centered
-- Card count: 15pt Regular, white, centered in ring
-- Start button: 48px height, white bg, blue text, bottom 20px
-
-Due Today Cards (Small):
-- Width: 160px
-- Height: 200px
-- Photo: Thematic (beach for biology, architecture for history, etc.)
-- Corner radius: 16px
-- Shadow: 0px 4px 12px rgba(0,0,0,0.1)
-- Spacing: 12px gap
-- Scrollable horizontally
-
-Tab Bar:
-- Height: 80px (includes safe area)
-- Background: White with blur effect
-- Border top: 1px solid rgba(0,0,0,0.05)
-- Icons: 24pt, #0A84FF when selected, #8E8E93 when inactive
-
-───────────────────────────────────────────────────────────────────────────────
-SCREEN 10: CREATE OPTIONS (Modal from Home)
-───────────────────────────────────────────────────────────────────────────────
-
-LAYOUT DESCRIPTION:
-"How will you capture today?" title (28pt Bold #1C1C1E, centered). Three large option cards stacked vertically, each with photo background, gradient overlay, icon (60pt white), title, and subtitle: 📷 "Camera" / "Snap notes or textbook" (photo of notebook with handwritten notes), 📄 "PDF" / "Import documents" (photo of PDF documents), ✍️ "Text" / "Paste or type" (photo of laptop/typing). "Manual Entry" blue link at bottom.
-
-Option Card Specs:
-- Width: 90% screen width
-- Height: 180px
-- Photo: Contextual (camera gear, documents, laptop)
-- Corner radius: 20px
-- Gradient overlay: Linear gradient rgba(0,0,0,0) to rgba(0,0,0,0.6) bottom 60%
-- Shadow: 0px 6px 16px rgba(0,0,0,0.1)
-- Spacing: 16px between cards
-
-Card Content:
-- Icon: 60pt emoji, centered horizontally, 40% from top
-- Title: 22pt Bold, white, centered, 16px below icon
-- Subtitle: 15pt Regular, white 80% opacity, centered, 8px below title
-
-Manual Entry Link:
-- Position: 24px below last card
-- Color: #0A84FF
-- Underline on tap
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 11: LIBRARY TAB
-───────────────────────────────────────────────────────────────────────────────
+Search bar at top. Filter pills (All, Recent, Favorites). 2-column grid of deck cards with photo backgrounds: "Tropical Biology" (beach photo), "Indian History" (historical building), "Calculus 101" (math symbols), "Spanish Basics" (Spanish landscape). Each with progress indicator. 3-tab bar with Library selected.
 
-LAYOUT DESCRIPTION:
-Status bar. Search bar at top (🔍 "Search decks..." white bg, gray border). Filter pills below (All, Recent, Favorites). 2-column grid of deck cards, each with beautiful photo background (tropical beach for "Tropical Biology", historical building for "Indian History", math symbols for "Calculus 101", Spanish landscape for "Spanish Basics") with title overlay and progress indicator. Bottom tab bar with Library selected.
-
-Search Bar:
-- Width: 90% screen width
-- Height: 44px
-- Background: #F8F9FA
-- Border: 1px solid #E5E5EA
-- Corner radius: 12px
-- Placeholder: #8E8E93
-- Icon: Magnifying glass, left, 16px padding
-
-Filter Pills:
-- Height: 32px
-- Padding: 12px horizontal
-- Background: #F8F9FA (inactive), #0A84FF (active)
-- Text: #1C1C1E (inactive), White (active)
-- Corner radius: 16px
-- Spacing: 8px gap
-
-Deck Cards (Grid):
-- Columns: 2
-- Card width: 48% screen width
-- Card height: 200px
-- Gap: 12px
-- Photo: Thematic to deck content
-
-Deck Card Content:
-- Photo: Full card background
-- Gradient overlay: rgba(0,0,0,0.3) bottom 50%
-- Deck name: 17pt Bold, white, 16px from bottom
-- Progress: 13pt Regular, white 80%, 12px from bottom
-- Progress ring: Small, 32px, top right corner with 12px padding
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 12: EXPLORE TAB
-───────────────────────────────────────────────────────────────────────────────
+Search bar. Horizontal scroll of category chips (Popular, Languages, Science, History). "Featured Decks" heading. Vertical list of deck cards with photos: "Japanese Culture" by @studywithme (Kyoto street), "World Architecture" by @archi_learn (architecture photo). Each with "+ Add to Library" button. 3-tab bar with Explore selected.
 
-LAYOUT DESCRIPTION:
-Status bar. Search bar at top (🔍 "Search featured decks..."). Horizontal scroll of category chips (Popular, Languages, Science, History). "Featured Decks" heading (22pt Bold #1C1C1E). Vertical list of featured deck cards with photos: "Japanese Culture" by @studywithme (photo of Kyoto street), "World Architecture" by @archi_learn (photo of architecture/buildings), each with "+ Add to Library" button. Bottom tab bar with Explore selected.
-
-Category Chips:
-- Same style as filter pills
-- Horizontal scrollable
-- Auto-width based on text
-
-Featured Deck Cards:
-- Width: 90% screen width
-- Height: 280px
-- Photo: High quality, relevant to deck topic
-- Corner radius: 20px
-- Shadow: 0px 8px 20px rgba(0,0,0,0.1)
-- Spacing: 20px vertical
-
-Card Content Layout:
-- Photo: Top 65%
-- White info section: Bottom 35%
-- Gradient transition between photo and info
-
-Info Section:
-- Deck title: 20pt Bold, #1C1C1E, 16px padding
-- Author & stats: 13pt Regular, #8E8E93, 8px below title
-- Add button: 40px height, blue border, blue text, bottom 12px
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 13: STUDY SETUP
-───────────────────────────────────────────────────────────────────────────────
+Large deck preview card with landmark photo (Colosseum), deck icon 🗺️, "World Landmarks" title, "24 cards to review". Three horizontal mode cards: 🎴 Flashcards (selected), ❓ Quiz, ✍️ Write. Blue "Start Session" button at bottom.
 
-LAYOUT DESCRIPTION:
-Large centered deck preview card with landmark photo (e.g. Colosseum), gradient overlay, deck icon (🗺️ 60pt white), deck name "World Landmarks" (22pt Bold white), and "24 cards to review" (15pt Regular white 80%). "Study Mode" label (17pt Semibold #1C1C1E) below. Three horizontal mode selector cards: 🎴 "Flashcards" (selected with blue border), ❓ "Quiz", ✍️ "Write". Blue "Start Session" button at bottom (56px height).
-
-Deck Preview Card:
-- Width: 90% screen width
-- Height: 260px
-- Photo: Thematic landmark or subject
-- Corner radius: 24px
-- Gradient: rgba(0,0,0,0.4) bottom 60%
-
-Mode Selector Cards:
-- Width: 30% screen width
-- Height: 100px
-- Background: White
-- Border: 2px solid #E5E5EA (inactive)
-- Border: 2px solid #0A84FF (selected)
-- Corner radius: 16px
-- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
-
-Mode Card Content:
-- Emoji: 40pt, centered, top 20px
-- Label: 15pt Semibold, #1C1C1E, centered, below emoji
-
-Start Button:
-- Same style as primary buttons on earlier screens
-- Position: Fixed to bottom with 60px padding
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 14: FLASHCARD MODE
-───────────────────────────────────────────────────────────────────────────────
+Progress bar at top. "3 of 20" counter. Large flashcard with Eiffel Tower photo, "Bonjour" on front, "Hello / Good day" on back. Four rating buttons: Again (red), Hard (orange), Good (blue), Easy (green).
 
-LAYOUT DESCRIPTION:
-Thin blue progress bar at top (full width, 4px height). "3 of 20" counter (top right). Large centered flashcard with photo background (Eiffel Tower), dark gradient overlay, front text "Bonjour" (34pt Bold white centered) with "Tap to flip indicator" at bottom. When flipped shows "Hello / Good day" (28pt Regular white). Four rating buttons at bottom: "Again" (coral/red border), "Hard" (orange border), "Good" (blue border), "Easy" (green border).
-
-Progress Bar:
-- Width: Full width
-- Height: 4px
-- Background: #E5E5EA
-- Fill: #0A84FF
-- Position: Top edge
-
-Flashcard:
-- Width: 90% screen width
-- Height: 400px
-- Photo background: Contextual (Eiffel Tower for French, Mount Fuji for Japanese, etc.)
-- Corner radius: 24px
-- Shadow: 0px 12px 32px rgba(0,0,0,0.15)
-- Gradient overlay: rgba(0,0,0,0.5) for text readability
-
-Card Text:
-- Front: 34pt Bold, white, centered
-- Back: 28pt Regular, white, centered
-- Flip indicator: 13pt Regular, white 60%, bottom 20px
-
-Rating Buttons:
-- Width: 22% screen width each
-- Height: 64px
-- Background: White
-- Border: 2px solid corresponding color
-- Corner radius: 12px
-- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
-
-Button Colors:
-- Again: Border #FF6B6B (coral/red)
-- Hard: Border #FF9F0A (orange)
-- Good: Border #0A84FF (blue)
-- Easy: Border #34C759 (green)
-
-Button Text:
-- 15pt Semibold
-- Color matches border color
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 15: QUIZ MODE
-───────────────────────────────────────────────────────────────────────────────
+Progress bar. "Question 5 of 20" and "Score: 4/5". Question card with Eiffel Tower photo: "What is the capital of France?". Four answer cards: Paris (selected, green checkmark), London, Berlin, Madrid. Blue "Next" button.
 
-LAYOUT DESCRIPTION:
-Progress bar at top. "Question 5 of 20" and "Score: 4/5" header. Question card with Eiffel Tower photo showing "What is the capital of France?" (22pt Bold white centered). Four stacked answer cards (white, gray border): "Paris" (selected with green border and checkmark ✓), "London", "Berlin", "Madrid". Blue "Next" button at bottom after answer selected.
-
-Question Card:
-- Width: 90% screen width
-- Height: 180px
-- Photo: Contextual to question
-- Gradient overlay: rgba(0,0,0,0.5)
-- Corner radius: 20px
-
-Answer Cards:
-- Width: 90% screen width
-- Height: 64px
-- Background: White
-- Border: 2px solid #E5E5EA (normal)
-- Border: 2px solid #34C759 (correct)
-- Border: 2px solid #FF6B6B (incorrect)
-- Corner radius: 16px
-- Spacing: 12px
-
-Answer States:
-- Normal: White bg, gray border
-- Selected (before reveal): Blue border #0A84FF, blue tint bg
-- Correct (after reveal): Green border, green checkmark icon right
-- Incorrect (after reveal): Red border, red X icon right
-
-Answer Text:
-- 17pt Semibold, #1C1C1E
-
-Next Button:
-- Appears after answer selected
-- Same style as primary buttons
-- Position: 24px below last answer
-
-───────────────────────────────────────────────────────────────────────────────
 SCREEN 16: SESSION COMPLETE
-───────────────────────────────────────────────────────────────────────────────
-
-LAYOUT DESCRIPTION:
-Full-screen mountain peak at sunset photo background with dark gradient overlay rgba(0,0,0,0.6). "Great job, Alex!" title (34pt Bold white centered). White frosted glass stats card showing "25 cards reviewed" (22pt Bold #1C1C1E), divider line, "15 minutes focused" (17pt Regular #8E8E93), "90% accuracy" (17pt Regular #8E8E93). Blue "Return to Home" button below stats card.
-
-Background Photo:
-- Full screen (edge to edge)
-- Subject: Inspirational nature (mountain peak, sunrise/sunset, achievement)
-- Lighting: Dramatic, golden hour
-- Mood: Accomplishment, success
-- Overlay: Dark gradient rgba(0,0,0,0.6) for contrast
-
-Stats Card:
-- Width: 85% screen width
-- Padding: 32px
-- Background: White with 85% opacity (frosted glass effect)
-- Backdrop blur: 20px
-- Corner radius: 24px
-- Shadow: 0px 16px 48px rgba(0,0,0,0.2)
-
-Stats Layout:
-- Primary stat (cards reviewed): 22pt Bold, #1C1C1E, centered
-- Divider: 1px line, #E5E5EA, 24px vertical spacing
-- Secondary stats: 17pt Regular, #8E8E93, centered, 16px spacing
-
-Return Button:
-- Same style as primary buttons
-- Position: 32px below stats card
+Full-screen mountain peak sunset photo with gradient overlay. "Great job, Alex!" title in white. White frosted glass card with stats: "25 cards reviewed", "15 minutes focused", "90% accuracy". Blue "Return to Home" button.
 
 ═══════════════════════════════════════════════════════════════════════════════
-FINAL NOTES
+NOTES
 ═══════════════════════════════════════════════════════════════════════════════
 
-PHOTO SOURCING GUIDELINES:
-- Use high quality stock photos (Unsplash, Pexels quality)
-- Consistent color grading across all photos (warm, natural tones)
-- Professional composition (rule of thirds, balanced)
-- Clear subjects, minimal clutter
-- Aspirational but realistic
-- Diverse representation in people photos
-
-ACCESSIBILITY:
-- Minimum touch target: 44x44pt
-- Color contrast ratio: 4.5:1 for text
-- Text on photos must have sufficient gradient overlay for readability
-- Support Dynamic Type for all text
-
-CONSISTENCY:
-- Same corner radius for similar element types
-- Consistent spacing grid (8pt base)
-- Consistent shadow depths for elevation hierarchy
-- Unified photo treatment (same overlay opacity, same gradient style)
-
-ANIMATION (if supported):
-- Card flips: 0.3s spring animation
-- Button taps: 0.15s scale down to 0.95
-- Screen transitions: 0.35s ease-in-out slide
-- Progress updates: 0.5s ease-out
-
-This prompt is ready for Google Stitch or similar design tools. All measurements, colors, and specifications are production-ready.
+- Use high quality stock photos (Unsplash/Pexels style)
+- Consistent warm color grading across all photos
+- 3 tabs total: Home (with Create button), Library, Explore
+- iPhone 15 Pro format (9:19.5 ratio)
+- Production-ready for Google Stitch
