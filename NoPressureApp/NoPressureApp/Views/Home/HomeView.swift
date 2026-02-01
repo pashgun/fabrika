@@ -4,9 +4,13 @@ import FabrikaAnalytics
 
 struct HomeView: View {
     @Query private var decks: [Deck]
+    @Query private var users: [User]
     @Environment(\.analyticsService) private var analytics
     @Environment(\.modelContext) private var modelContext
-    @State private var userName = "Friend"
+
+    private var userName: String {
+        users.first?.name ?? "Friend"
+    }
 
     var body: some View {
         NavigationStack {

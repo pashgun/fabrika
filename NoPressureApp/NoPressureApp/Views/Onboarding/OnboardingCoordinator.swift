@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct OnboardingCoordinator: View {
+    @Environment(\.modelContext) private var modelContext
     @Binding var isOnboardingComplete: Bool
     @State private var currentScreen = 0
     @State private var howItWorksPage = 0
@@ -32,6 +34,15 @@ struct OnboardingCoordinator: View {
                     selectedInterests: $selectedInterests,
                     currentStep: $personalizationStep
                 ) {
+                    // Move to Sign Up screen
+                    withAnimation {
+                        currentScreen = 3
+                    }
+                }
+                .transition(.opacity)
+
+            case 3:
+                SignUpView {
                     completeOnboarding()
                 }
                 .transition(.opacity)

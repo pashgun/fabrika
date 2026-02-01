@@ -13,6 +13,7 @@ struct StudySessionView: View {
     @State private var cardsReviewed = 0
     @State private var showingComplete = false
     @State private var sessionStartTime = Date()
+    @State private var studyMode: StudyMode = .flashcard
 
     private let fsrsService = FSRSService()
 
@@ -62,69 +63,19 @@ struct StudySessionView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 20)
 
-                // Progress Bar
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .fill(Color.white.opacity(0.2))
-                            .frame(height: 4)
+                // Study Mode Selector
+                StudyModeSelector(selectedMode: $studyMode)
+                    .padding(.top, 16)
 
-                        Rectangle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [Color(hex: "#BF5AF2"), Color(hex: "#0A84FF")],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .frame(width: geometry.size.width * CGFloat(currentCardIndex) / CGFloat(max(dueCards.count, 1)), height: 4)
-                    }
+                // Content based on study mode
+                switch studyMode {
+                case .flashcard:
+                    flashcardModeView
+                case .quiz:
+                    quizModeView
+                case .write:
+                    writeModeView
                 }
-                .frame(height: 4)
-                .padding(.top, 16)
-
-                Spacer()
-
-                // Flashcard
-                if let card = currentCard {
-                    FlipCard(
-                        front: card.front,
-                        back: card.back,
-                        isFlipped: $isFlipped
-                    )
-                    .padding(.horizontal, 32)
-                } else {
-                    Text("No cards to review")
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(.white)
-                }
-
-                Spacer()
-
-                // Rating Buttons (show only when flipped)
-                if isFlipped {
-                    HStack(spacing: 12) {
-                        RatingButton(title: "Again", color: "#FF375F") {
-                            rateCard(rating: .again)
-                        }
-
-                        RatingButton(title: "Hard", color: "#FF9F0A") {
-                            rateCard(rating: .hard)
-                        }
-
-                        RatingButton(title: "Good", color: "#0A84FF") {
-                            rateCard(rating: .good)
-                        }
-
-                        RatingButton(title: "Easy", color: "#30D158") {
-                            rateCard(rating: .easy)
-                        }
-                    }
-                    .padding(.horizontal, 24)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
-
-                Spacer().frame(height: 60)
             }
         }
         .navigationBarHidden(true)
@@ -154,6 +105,96 @@ struct StudySessionView: View {
             analytics.track(event, context: modelContext)
         }
     }
+
+    // MARK: - Mode Views
+
+    @ViewBuilder
+    private var flashcardModeView: some View {
+        VStack(spacing: 0) {
+            // Progress Bar
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .fill(Color.white.opacity(0.2))
+                        .frame(height: 4)
+
+                    Rectangle()
+                        .fill(
+                            LinearGradient(
+                                colors: [Color(hex: "#BF5AF2"), Color(hex: "#0A84FF")],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .frame(width: geometry.size.width * CGFloat(currentCardIndex) / CGFloat(max(dueCards.count, 1)), height: 4)
+                }
+            }
+            .frame(height: 4)
+            .padding(.top, 16)
+            .padding(.horizontal, 24)
+
+            Spacer()
+
+            // Flashcard
+            if let card = currentCard {
+                FlipCard(
+                    front: card.front,
+                    back: card.back,
+                    isFlipped: $isFlipped
+                )
+                .padding(.horizontal, 32)
+            } else {
+                Text("No cards to review")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.white)
+            }
+
+            Spacer()
+
+            // Rating Buttons (show only when flipped)
+            if isFlipped {
+                HStack(spacing: 12) {
+                    RatingButton(title: "Again", color: "#FF375F") {
+                        rateCard(rating: .again)
+                    }
+
+                    RatingButton(title: "Hard", color: "#FF9F0A") {
+                        rateCard(rating: .hard)
+                    }
+
+                    RatingButton(title: "Good", color: "#0A84FF") {
+                        rateCard(rating: .good)
+                    }
+
+                    RatingButton(title: "Easy", color: "#30D158") {
+                        rateCard(rating: .easy)
+                    }
+                }
+                .padding(.horizontal, 24)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+
+            Spacer().frame(height: 60)
+        }
+    }
+
+    @ViewBuilder
+    private var quizModeView: some View {
+        QuizModeView(cards: dueCards) {
+            showingComplete = true
+            cardsReviewed = dueCards.count
+        }
+    }
+
+    @ViewBuilder
+    private var writeModeView: some View {
+        WriteModeView(cards: dueCards) {
+            showingComplete = true
+            cardsReviewed = dueCards.count
+        }
+    }
+
+    // MARK: - Card Rating
 
     private func rateCard(rating: AppRating) {
         guard let card = currentCard else { return }

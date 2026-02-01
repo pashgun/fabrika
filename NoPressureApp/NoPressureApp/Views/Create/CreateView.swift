@@ -1,6 +1,11 @@
 import SwiftUI
 
 struct CreateView: View {
+    @State private var showingManualCreate = false
+    @State private var showingCameraCapture = false
+    @State private var showingPDFImport = false
+    @State private var showingTextImport = false
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -21,28 +26,34 @@ struct CreateView: View {
                             emoji: "📷",
                             title: "Camera",
                             subtitle: "Snap notes or textbook"
-                        )
+                        ) {
+                            showingCameraCapture = true
+                        }
 
                         CreateOptionCard(
                             icon: "doc.fill",
                             emoji: "📄",
                             title: "PDF",
                             subtitle: "Import documents"
-                        )
+                        ) {
+                            showingPDFImport = true
+                        }
 
                         CreateOptionCard(
                             icon: "text.alignleft",
                             emoji: "✍️",
                             title: "Text",
                             subtitle: "Paste or type"
-                        )
+                        ) {
+                            showingTextImport = true
+                        }
                     }
                     .padding(.horizontal, 24)
 
                     Spacer()
 
                     Button {
-                        // Navigate to manual creation
+                        showingManualCreate = true
                     } label: {
                         Text("Create Manually")
                             .font(.system(size: 15, weight: .semibold))
@@ -52,6 +63,18 @@ struct CreateView: View {
                 }
             }
             .navigationBarHidden(true)
+            .sheet(isPresented: $showingManualCreate) {
+                ManualCreateView()
+            }
+            .sheet(isPresented: $showingCameraCapture) {
+                CameraCaptureView()
+            }
+            .sheet(isPresented: $showingPDFImport) {
+                PDFImportView()
+            }
+            .sheet(isPresented: $showingTextImport) {
+                TextImportView()
+            }
         }
     }
 }
@@ -61,11 +84,10 @@ struct CreateOptionCard: View {
     let emoji: String
     let title: String
     let subtitle: String
+    let action: () -> Void
 
     var body: some View {
-        Button {
-            // Handle create action
-        } label: {
+        Button(action: action) {
             HStack(spacing: 16) {
                 Text(emoji)
                     .font(.system(size: 40))
