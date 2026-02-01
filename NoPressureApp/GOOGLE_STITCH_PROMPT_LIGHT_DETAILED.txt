@@ -15,53 +15,329 @@ VISUAL STYLE
 16 SCREENS
 ═══════════════════════════════════════════════════════════════════════════════
 
-SCREEN 1: WELCOME
-Full-screen photo of woman studying with coffee in warm cafe. "No Pressure Flashcards" title and "Learn at your own pace" subtitle in white text. Large blue "Get Started" button at bottom.
+┌─────────────────────────────────┐
+│ SCREEN 1: WELCOME               │
+├─────────────────────────────────┤
+│                                 │
+│  [Photo: Woman in cafe]         │
+│                                 │
+│  "No Pressure Flashcards"       │
+│  "Learn at your own pace"       │
+│                                 │
+│  [Get Started - Blue Button]    │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 2: ONBOARDING - Snap & Learn
-White background. Large photo card showing Eiffel Tower with camera icon 📷. "Snap & Learn" title on photo. Description: "AI creates flashcards from photos, PDFs, or text". Progress dots 1/3.
+┌─────────────────────────────────┐
+│ SCREEN 2: ONBOARDING 1          │
+├─────────────────────────────────┤
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Eiffel Tower]    │   │
+│  │      📷                   │   │
+│  │  "Snap & Learn"          │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  "AI creates flashcards..."     │
+│                                 │
+│  ● ○ ○                          │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 3: ONBOARDING - No Guilt
-Photo card with peaceful mountain/forest scene. Heart icon ❤️. "No Guilt, No Burnout" title. Description: "Miss a day? No problem. No streaks, no pressure." Progress dots 2/3.
+┌─────────────────────────────────┐
+│ SCREEN 3: ONBOARDING 2          │
+├─────────────────────────────────┤
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Mountains/Forest]│   │
+│  │      ❤️                   │   │
+│  │  "No Guilt, No Burnout"  │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  "Miss a day? No problem..."    │
+│                                 │
+│  ○ ● ○                          │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 4: ONBOARDING - Smart Repetition
-Photo card with study desk from above. Brain icon 🧠. "Smart Repetition" title. Description: "FSRS algorithm shows cards at optimal time". Progress dots 3/3.
+┌─────────────────────────────────┐
+│ SCREEN 4: ONBOARDING 3          │
+├─────────────────────────────────┤
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Study Desk]      │   │
+│  │      🧠                   │   │
+│  │  "Smart Repetition"      │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  "FSRS algorithm shows..."      │
+│                                 │
+│  ○ ○ ●                          │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 5: GOAL SELECTION
-"What's your goal?" title. 2x2 grid of cards with emojis: 🎓 Ace my exams, 🗣️ Learn a language, 💼 Professional growth, 🧠 General knowledge. Selected card has blue border.
+┌─────────────────────────────────┐
+│ SCREEN 5: GOAL SELECTION        │
+├─────────────────────────────────┤
+│                                 │
+│  "What's your goal?"            │
+│                                 │
+│  ┌──────────┐  ┌──────────┐    │
+│  │ 🎓       │  │ 🗣️       │    │
+│  │Ace exams │  │Language  │    │
+│  └──────────┘  └──────────┘    │
+│                                 │
+│  ┌──────────┐  ┌──────────┐    │
+│  │ 💼       │  │ 🧠       │    │
+│  │Prof grow │  │Knowledge │    │
+│  └──────────┘  └──────────┘    │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 6: TIME SELECTION
-"How much time per day?" title. Four vertical cards: ⚡ 5 min "Quick learner", ☕ 15 min "Steady pace", 📚 30 min "Dedicated", 🚀 60 min "Power user".
+┌─────────────────────────────────┐
+│ SCREEN 6: TIME SELECTION        │
+├─────────────────────────────────┤
+│                                 │
+│  "How much time per day?"       │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ ⚡ 5 min - Quick learner  │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ ☕ 15 min - Steady pace   │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ 📚 30 min - Dedicated     │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ 🚀 60 min - Power user    │   │
+│  └──────────────────────────┘   │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 7: INTERESTS
-"What interests you?" title. "Select all that apply" subtitle. Pill chips: Science, History, Languages, Math, Medicine, Law, Art, Tech, Business, Music. Selected chips are blue.
+┌─────────────────────────────────┐
+│ SCREEN 7: INTERESTS             │
+├─────────────────────────────────┤
+│                                 │
+│  "What interests you?"          │
+│  "Select all that apply"        │
+│                                 │
+│  [Science] [History] [Languages]│
+│  [Math] [Medicine] [Law]        │
+│  [Art] [Tech] [Business] [Music]│
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 8: SIGN UP
-"Create your account" title. Three buttons: "Continue with Apple" (black), "Continue with Google" (white), "Continue with Email" (blue link). Footer: "Terms of Service | Privacy Policy".
+┌─────────────────────────────────┐
+│ SCREEN 8: SIGN UP               │
+├─────────────────────────────────┤
+│                                 │
+│  "Create your account"          │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ 🍎 Continue with Apple   │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ G  Continue with Google  │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  Continue with Email            │
+│                                 │
+│  Terms | Privacy                │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 9: HOME TAB
-"Good morning, Alex" greeting. Blue "Create New Cards" button with + icon. Large featured deck card with Mount Fuji photo, "Japanese Basics" title, progress ring (0/20), "Start Learning" button. "Due Today" section with horizontal scroll of 3 small photo deck cards. Bottom: 3-tab bar (🏠 Home selected, 📚 Library, 🔍 Explore).
+┌─────────────────────────────────┐
+│ SCREEN 9: HOME TAB              │
+├─────────────────────────────────┤
+│                                 │
+│  "Good morning, Alex"           │
+│                                 │
+│  [+ Create New Cards - Blue]    │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Mount Fuji]      │   │
+│  │ "Japanese Basics"        │   │
+│  │  ◯ 0/20                  │   │
+│  │ [Start Learning]         │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  "Due Today"                    │
+│  [📷][📷][📷] →                 │
+│                                 │
+│ ┌───────────────────────────┐   │
+│ │ 🏠 Home  📚 Library  🔍   │   │
+│ └───────────────────────────┘   │
+└─────────────────────────────────┘
 
-SCREEN 10: CREATE OPTIONS (Modal)
-"How will you capture today?" title. Three large photo cards: 📷 "Camera" / "Snap notes or textbook", 📄 "PDF" / "Import documents", ✍️ "Text" / "Paste or type". "Manual Entry" link at bottom.
+┌─────────────────────────────────┐
+│ SCREEN 10: CREATE OPTIONS       │
+├─────────────────────────────────┤
+│                                 │
+│  "How will you capture today?"  │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Notebook]        │   │
+│  │      📷                   │   │
+│  │  "Camera"                │   │
+│  │  Snap notes or textbook  │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Documents]       │   │
+│  │      📄                   │   │
+│  │  "PDF"                   │   │
+│  │  Import documents        │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Laptop]          │   │
+│  │      ✍️                   │   │
+│  │  "Text"                  │   │
+│  │  Paste or type           │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  Manual Entry                   │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 11: LIBRARY TAB
-Search bar at top. Filter pills (All, Recent, Favorites). 2-column grid of deck cards with photo backgrounds: "Tropical Biology" (beach photo), "Indian History" (historical building), "Calculus 101" (math symbols), "Spanish Basics" (Spanish landscape). Each with progress indicator. 3-tab bar with Library selected.
+┌─────────────────────────────────┐
+│ SCREEN 11: LIBRARY TAB          │
+├─────────────────────────────────┤
+│                                 │
+│  [🔍 Search decks...]           │
+│                                 │
+│  [All] [Recent] [Favorites]     │
+│                                 │
+│  ┌──────┐  ┌──────┐             │
+│  │Beach │  │Build │             │
+│  │Bio   │  │Hist  │             │
+│  │12/24 │  │8/16  │             │
+│  └──────┘  └──────┘             │
+│  ┌──────┐  ┌──────┐             │
+│  │Math  │  │Spain │             │
+│  │Calc  │  │Lang  │             │
+│  │20/30 │  │5/10  │             │
+│  └──────┘  └──────┘             │
+│                                 │
+│ ┌───────────────────────────┐   │
+│ │ 🏠 Home  📚 Library  🔍   │   │
+│ └───────────────────────────┘   │
+└─────────────────────────────────┘
 
-SCREEN 12: EXPLORE TAB
-Search bar. Horizontal scroll of category chips (Popular, Languages, Science, History). "Featured Decks" heading. Vertical list of deck cards with photos: "Japanese Culture" by @studywithme (Kyoto street), "World Architecture" by @archi_learn (architecture photo). Each with "+ Add to Library" button. 3-tab bar with Explore selected.
+┌─────────────────────────────────┐
+│ SCREEN 12: EXPLORE TAB          │
+├─────────────────────────────────┤
+│                                 │
+│  [🔍 Search featured decks...]  │
+│                                 │
+│  [Popular][Languages][Science]→ │
+│                                 │
+│  "Featured Decks"               │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Kyoto street]    │   │
+│  │ "Japanese Culture"       │   │
+│  │ by @studywithme          │   │
+│  │ [+ Add to Library]       │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Architecture]    │   │
+│  │ "World Architecture"     │   │
+│  │ by @archi_learn          │   │
+│  │ [+ Add to Library]       │   │
+│  └──────────────────────────┘   │
+│                                 │
+│ ┌───────────────────────────┐   │
+│ │ 🏠 Home  📚 Library  🔍   │   │
+│ └───────────────────────────┘   │
+└─────────────────────────────────┘
 
-SCREEN 13: STUDY SETUP
-Large deck preview card with landmark photo (Colosseum), deck icon 🗺️, "World Landmarks" title, "24 cards to review". Three horizontal mode cards: 🎴 Flashcards (selected), ❓ Quiz, ✍️ Write. Blue "Start Session" button at bottom.
+┌─────────────────────────────────┐
+│ SCREEN 13: STUDY SETUP          │
+├─────────────────────────────────┤
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Colosseum]       │   │
+│  │      🗺️                   │   │
+│  │  "World Landmarks"       │   │
+│  │  "24 cards to review"    │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  "Study Mode"                   │
+│                                 │
+│  ┌────┐ ┌────┐ ┌────┐          │
+│  │🎴  │ │❓  │ │✍️  │          │
+│  │Card│ │Quiz│ │Writ│          │
+│  └────┘ └────┘ └────┘          │
+│                                 │
+│  [Start Session - Blue]         │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 14: FLASHCARD MODE
-Progress bar at top. "3 of 20" counter. Large flashcard with Eiffel Tower photo, "Bonjour" on front, "Hello / Good day" on back. Four rating buttons: Again (red), Hard (orange), Good (blue), Easy (green).
+┌─────────────────────────────────┐
+│ SCREEN 14: FLASHCARD MODE       │
+├─────────────────────────────────┤
+│ ━━━━━━━━━━━━━  3 of 20          │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Eiffel Tower]    │   │
+│  │                          │   │
+│  │     "Bonjour"            │   │
+│  │                          │   │
+│  │  [Tap to flip]           │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  ┌────┐┌────┐┌────┐┌────┐      │
+│  │Agn ││Hard││Good││Easy│      │
+│  └────┘└────┘└────┘└────┘      │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 15: QUIZ MODE
-Progress bar. "Question 5 of 20" and "Score: 4/5". Question card with Eiffel Tower photo: "What is the capital of France?". Four answer cards: Paris (selected, green checkmark), London, Berlin, Madrid. Blue "Next" button.
+┌─────────────────────────────────┐
+│ SCREEN 15: QUIZ MODE            │
+├─────────────────────────────────┤
+│ ━━━━━━━━━  Q 5/20  Score: 4/5   │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ [Photo: Eiffel Tower]    │   │
+│  │ "What is the capital     │   │
+│  │  of France?"             │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │ Paris               ✓    │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ London                   │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ Berlin                   │   │
+│  └──────────────────────────┘   │
+│  ┌──────────────────────────┐   │
+│  │ Madrid                   │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  [Next - Blue]                  │
+│                                 │
+└─────────────────────────────────┘
 
-SCREEN 16: SESSION COMPLETE
-Full-screen mountain peak sunset photo with gradient overlay. "Great job, Alex!" title in white. White frosted glass card with stats: "25 cards reviewed", "15 minutes focused", "90% accuracy". Blue "Return to Home" button.
+┌─────────────────────────────────┐
+│ SCREEN 16: SESSION COMPLETE     │
+├─────────────────────────────────┤
+│                                 │
+│  [Photo: Mountain sunset]       │
+│                                 │
+│  "Great job, Alex!"             │
+│                                 │
+│  ┌──────────────────────────┐   │
+│  │  25 cards reviewed       │   │
+│  │  ─────────────           │   │
+│  │  15 minutes focused      │   │
+│  │  90% accuracy            │   │
+│  └──────────────────────────┘   │
+│                                 │
+│  [Return to Home - Blue]        │
+│                                 │
+└─────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
 NOTES
