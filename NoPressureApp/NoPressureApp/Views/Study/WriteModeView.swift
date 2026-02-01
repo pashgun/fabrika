@@ -217,23 +217,15 @@ struct WriteModeView: View {
             return
         }
 
-        if let fsrsData = card.fsrsData {
-            let recordLog = fsrsService.repeat(card: fsrsData.convertToCard(), now: Date())
+        // Use FSRSService.processReview instead of non-existent repeat method
+        let updatedFSRS = fsrsService.processReview(card: card, rating: rating, now: Date())
+        card.fsrsData = updatedFSRS
 
-            // Safe optional binding - use rating or fallback to .good
-            guard let recordLogItem = recordLog[rating.fsrsRating] ?? recordLog[.good] else {
-                return
-            }
-
-            fsrsData.update(from: recordLogItem.card)
-            fsrsData.lastReviewed = recordLogItem.reviewTime
-
-            do {
-                try modelContext.save()
-            } catch {
-                showError = true
-                errorMessage = "Failed to save progress: \(error.localizedDescription)"
-            }
+        do {
+            try modelContext.save()
+        } catch {
+            showError = true
+            errorMessage = "Failed to save progress: \(error.localizedDescription)"
         }
     }
 
