@@ -14,6 +14,8 @@ struct StudySessionView: View {
     @State private var showingComplete = false
     @State private var sessionStartTime = Date()
     @State private var studyMode: StudyMode = .flashcard
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     private let fsrsService = FSRSService()
 
@@ -103,6 +105,11 @@ struct StudySessionView: View {
                 duration: duration
             )
             analytics.track(event, context: modelContext)
+        }
+        .alert("Error", isPresented: $showError) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
         }
     }
 
@@ -213,7 +220,12 @@ struct StudySessionView: View {
         analytics.track(event, context: modelContext)
 
         // Save context
-        try? modelContext.save()
+        do {
+            try modelContext.save()
+        } catch {
+            showError = true
+            errorMessage = "Failed to save progress: \(error.localizedDescription)"
+        }
 
         cardsReviewed += 1
 

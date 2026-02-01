@@ -13,6 +13,8 @@ struct CameraCaptureView: View {
     @State private var generatedCards: [GeneratedFlashcard] = []
     @State private var errorMessage: String?
     @State private var showingReview = false
+    @State private var showSaveError = false
+    @State private var saveErrorMessage = ""
 
     private let ocrService = OCRService()
     private let aiService = AIGenerationService()
@@ -191,6 +193,11 @@ struct CameraCaptureView: View {
                 ImagePicker(image: $capturedImage)
             }
         }
+        .alert("Error", isPresented: $showSaveError) {
+            Button("OK") { }
+        } message: {
+            Text(saveErrorMessage)
+        }
     }
 
     private func processImage() async {
@@ -241,8 +248,13 @@ struct CameraCaptureView: View {
             modelContext.insert(flashcard)
         }
 
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            showSaveError = true
+            saveErrorMessage = "Failed to save deck: \(error.localizedDescription)"
+        }
     }
 }
 

@@ -10,6 +10,8 @@ struct TextImportView: View {
     @State private var generatedCards: [GeneratedFlashcard] = []
     @State private var errorMessage: String?
     @State private var showingReview = false
+    @State private var showSaveError = false
+    @State private var saveErrorMessage = ""
 
     private let aiService = AIGenerationService()
     private let characterLimit = 5000
@@ -130,6 +132,11 @@ struct TextImportView: View {
                 }
             }
         }
+        .alert("Error", isPresented: $showSaveError) {
+            Button("OK") { }
+        } message: {
+            Text(saveErrorMessage)
+        }
     }
 
     private func generateFlashcards() async {
@@ -172,8 +179,13 @@ struct TextImportView: View {
             modelContext.insert(flashcard)
         }
 
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            showSaveError = true
+            saveErrorMessage = "Failed to save deck: \(error.localizedDescription)"
+        }
     }
 }
 

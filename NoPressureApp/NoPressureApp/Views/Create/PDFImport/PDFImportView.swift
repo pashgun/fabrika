@@ -14,6 +14,8 @@ struct PDFImportView: View {
     @State private var generatedCards: [GeneratedFlashcard] = []
     @State private var errorMessage: String?
     @State private var showingReview = false
+    @State private var showSaveError = false
+    @State private var saveErrorMessage = ""
 
     private let aiService = AIGenerationService()
 
@@ -205,6 +207,11 @@ struct PDFImportView: View {
                 DocumentPicker(selectedURL: $selectedPDF)
             }
         }
+        .alert("Error", isPresented: $showSaveError) {
+            Button("OK") { }
+        } message: {
+            Text(saveErrorMessage)
+        }
     }
 
     private func processPDF() async {
@@ -277,8 +284,13 @@ struct PDFImportView: View {
             modelContext.insert(flashcard)
         }
 
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            showSaveError = true
+            saveErrorMessage = "Failed to save deck: \(error.localizedDescription)"
+        }
     }
 }
 

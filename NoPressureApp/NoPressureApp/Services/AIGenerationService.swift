@@ -2,7 +2,7 @@ import Foundation
 
 /// Service for generating flashcards using OpenRouter API (Claude 3.5 Sonnet)
 actor AIGenerationService {
-    private let apiKey = "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"
+    private let apiKey = Config.openRouterAPIKey
     private let baseURL = "https://openrouter.ai/api/v1/chat/completions"
     private let model = "anthropic/claude-3.5-sonnet"
 
@@ -141,7 +141,12 @@ actor AIGenerationService {
         do {
             let response = try JSONDecoder().decode(OpenRouterResponse.self, from: data)
 
-            guard let content = response.choices.first?.message.content else {
+            // Validate response has choices
+            guard !response.choices.isEmpty else {
+                throw AIError.invalidResponse
+            }
+
+            guard let content = response.choices.first?.message.content, !content.isEmpty else {
                 throw AIError.invalidResponse
             }
 
@@ -153,6 +158,12 @@ actor AIGenerationService {
             }
 
             let flashcardResponse = try JSONDecoder().decode(FlashcardResponse.self, from: jsonData)
+
+            // Validate we have at least one card
+            guard !flashcardResponse.cards.isEmpty else {
+                throw AIError.apiError("AI generated no flashcards. Try with different text.")
+            }
+
             return flashcardResponse.cards
 
         } catch let error as AIError {

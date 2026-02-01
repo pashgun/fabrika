@@ -11,7 +11,9 @@ struct QuizModeView: View {
     @State private var selectedAnswer: Int? = nil
     @State private var isAnswered = false
     @State private var score = 0
-    @State private var options: [String] = []
+    @State private var options: [String] = ["", "", "", ""]  // Initialize with 4 empty strings to prevent index out of bounds
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     private let fsrsService = FSRSService()
 
@@ -90,6 +92,11 @@ struct QuizModeView: View {
         .onAppear {
             generateOptions()
         }
+        .alert("Error", isPresented: $showError) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
+        }
     }
 
     private var currentCard: Flashcard {
@@ -130,12 +137,21 @@ struct QuizModeView: View {
 
         if let fsrsData = card.fsrsData {
             let recordLog = fsrsService.repeat(card: fsrsData.convertToCard(), now: Date())
-            let recordLogItem = recordLog[rating] ?? recordLog[.again]!
+
+            // Safe optional binding - use rating or fallback to .good
+            guard let recordLogItem = recordLog[rating.fsrsRating] ?? recordLog[.good] else {
+                return
+            }
 
             fsrsData.update(from: recordLogItem.card)
             fsrsData.lastReviewed = recordLogItem.reviewTime
 
-            try? modelContext.save()
+            do {
+                try modelContext.save()
+            } catch {
+                showError = true
+                errorMessage = "Failed to save progress: \(error.localizedDescription)"
+            }
         }
     }
 

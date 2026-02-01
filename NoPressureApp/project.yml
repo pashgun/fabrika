@@ -29,6 +29,9 @@ targets:
         CODE_SIGN_STYLE: Automatic
         TARGETED_DEVICE_FAMILY: "1"
         SWIFT_VERSION: "5.9"
+      configFiles:
+        Debug: Config.xcconfig
+        Release: Config.xcconfig
       configs:
         Debug:
           CODE_SIGN_IDENTITY: ""

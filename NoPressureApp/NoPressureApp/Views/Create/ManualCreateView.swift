@@ -10,6 +10,8 @@ struct ManualCreateView: View {
     @State private var selectedColor = "#0A84FF"
     @State private var selectedIcon = "star.fill"
     @State private var cards: [CardDraft] = [CardDraft(), CardDraft()]
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     let availableColors = [
         "#0A84FF", // Blue
@@ -178,6 +180,11 @@ struct ManualCreateView: View {
                 }
             }
         }
+        .alert("Error", isPresented: $showError) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
+        }
     }
 
     private var canSave: Bool {
@@ -203,8 +210,13 @@ struct ManualCreateView: View {
             modelContext.insert(flashcard)
         }
 
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            showError = true
+            errorMessage = "Failed to save deck: \(error.localizedDescription)"
+        }
     }
 }
 

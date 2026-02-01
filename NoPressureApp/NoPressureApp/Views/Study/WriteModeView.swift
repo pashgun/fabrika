@@ -13,6 +13,8 @@ struct WriteModeView: View {
     @State private var isCorrect = false
     @State private var score = 0
     @State private var showHint = false
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     private let fsrsService = FSRSService()
     private let similarityThreshold = 0.8 // 80% similarity required
@@ -42,8 +44,9 @@ struct WriteModeView: View {
             Spacer()
 
             // Question Card
-            VStack(spacing: 20) {
-                Text(currentCard.front)
+            if let card = currentCardSafe {
+                VStack(spacing: 20) {
+                    Text(card.front)
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
@@ -53,6 +56,10 @@ struct WriteModeView: View {
             .frame(maxWidth: .infinity)
             .liquidGlass(cornerRadius: 24)
             .padding(.horizontal, 24)
+            } else {
+                Text("No card available")
+                    .foregroundColor(.white)
+            }
 
             // Answer Input
             VStack(spacing: 16) {
@@ -101,13 +108,13 @@ struct WriteModeView: View {
                                 .foregroundColor(.white)
                         }
 
-                        if !isCorrect {
+                        if !isCorrect, let card = currentCardSafe {
                             VStack(spacing: 4) {
                                 Text("Correct answer:")
                                     .font(.system(size: 14, weight: .regular))
                                     .foregroundColor(Color(hex: "#8E8E93"))
 
-                                Text(currentCard.back)
+                                Text(card.back)
                                     .font(.system(size: 17, weight: .semibold))
                                     .foregroundColor(Color(hex: "#30D158"))
                                     .multilineTextAlignment(.center)
@@ -144,10 +151,18 @@ struct WriteModeView: View {
             .disabled(!isAnswered && userAnswer.isEmpty)
             .opacity(!isAnswered && userAnswer.isEmpty ? 0.5 : 1.0)
         }
+        .alert("Error", isPresented: $showError) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
+        }
     }
 
-    private var currentCard: Flashcard {
-        cards[currentIndex]
+    private var currentCardSafe: Flashcard? {
+        guard currentIndex >= 0 && currentIndex < cards.count else {
+            return nil
+        }
+        return cards[currentIndex]
     }
 
     private var answerBackgroundColor: Color {
@@ -165,7 +180,11 @@ struct WriteModeView: View {
     }
 
     private func getHint() -> String {
-        let answer = currentCard.back
+        guard let card = currentCardSafe else {
+            return "No hint available"
+        }
+
+        let answer = card.back
         let wordCount = answer.split(separator: " ").count
 
         if wordCount == 1 {
@@ -178,8 +197,12 @@ struct WriteModeView: View {
     }
 
     private func checkAnswer() {
+        guard let card = currentCardSafe else {
+            return
+        }
+
         isAnswered = true
-        isCorrect = userAnswer.isSimilarEnough(to: currentCard.back, threshold: similarityThreshold)
+        isCorrect = userAnswer.isSimilarEnough(to: card.back, threshold: similarityThreshold)
 
         if isCorrect {
             score += 1
@@ -190,16 +213,27 @@ struct WriteModeView: View {
     }
 
     private func updateFSRS(rating: AppRating) {
-        let card = currentCard
+        guard let card = currentCardSafe else {
+            return
+        }
 
         if let fsrsData = card.fsrsData {
             let recordLog = fsrsService.repeat(card: fsrsData.convertToCard(), now: Date())
-            let recordLogItem = recordLog[rating] ?? recordLog[.again]!
+
+            // Safe optional binding - use rating or fallback to .good
+            guard let recordLogItem = recordLog[rating.fsrsRating] ?? recordLog[.good] else {
+                return
+            }
 
             fsrsData.update(from: recordLogItem.card)
             fsrsData.lastReviewed = recordLogItem.reviewTime
 
-            try? modelContext.save()
+            do {
+                try modelContext.save()
+            } catch {
+                showError = true
+                errorMessage = "Failed to save progress: \(error.localizedDescription)"
+            }
         }
     }
 

@@ -45,16 +45,10 @@ class FSRSService {
         let schedulingInfo = fsrs.repeat(card: fsrsCard, now: now)
 
         // Get the appropriate record based on rating (using FSRS Rating enum)
-        let recordingLog: RecordLogItem
-        switch rating {
-        case .again:
-            recordingLog = schedulingInfo[.again]!
-        case .hard:
-            recordingLog = schedulingInfo[.hard]!
-        case .good:
-            recordingLog = schedulingInfo[.good]!
-        case .easy:
-            recordingLog = schedulingInfo[.easy]!
+        // Use safe optional binding with fallback to .good rating
+        guard let recordingLog = schedulingInfo[rating.fsrsRating] ?? schedulingInfo[.good] else {
+            // Fallback: return current FSRSData if scheduling info is completely missing
+            return fsrsData
         }
 
         // Update FSRSData
