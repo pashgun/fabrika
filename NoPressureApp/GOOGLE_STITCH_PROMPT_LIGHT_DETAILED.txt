@@ -1,0 +1,1025 @@
+Design a complete iOS 26 mobile flashcard app called "No Pressure Flashcards" with 16 screens in LIGHT THEME using modern iOS design with photo cards and glassmorphism.
+
+═══════════════════════════════════════════════════════════════════════════════
+VISUAL DESIGN SYSTEM
+═══════════════════════════════════════════════════════════════════════════════
+
+COLORS:
+- Background: Clean white #FFFFFF and light gray #F8F9FA
+- Primary accent: Bright blue #0A84FF (iOS system blue)
+- Secondary accents: Soft purple #BF5AF2, Coral #FF6B6B, Green #34C759
+- Text primary: Dark gray #1C1C1E
+- Text secondary: Medium gray #8E8E93
+- Text tertiary: Light gray #C7C7CC
+
+TYPOGRAPHY:
+- Title Large: SF Pro Display, 34pt Bold, #1C1C1E
+- Title 1: SF Pro Display, 28pt Bold, #1C1C1E
+- Title 2: SF Pro Display, 22pt Bold, #1C1C1E
+- Headline: SF Pro Display, 17pt Semibold, #1C1C1E
+- Body: SF Pro Text, 17pt Regular, #1C1C1E
+- Subheadline: SF Pro Text, 15pt Regular, #8E8E93
+- Caption: SF Pro Text, 12pt Regular, #C7C7CC
+
+PHOTO CARD STYLE:
+- Large photo backgrounds with rounded corners (16-24px)
+- High quality lifestyle photography: mountains, coffee shops, study scenes, nature, landmarks, travel
+- Warm, inviting color palette in photos (golden hour lighting, natural tones)
+- Professional photography look (sharp, well-composed, aspirational)
+- Photos used as card backgrounds with text overlays
+
+GLASS OVERLAY EFFECT:
+- White frosted overlay: 60-80% opacity on photo cards
+- Subtle drop shadow: rgba(0,0,0,0.08), 12px blur, 4px offset
+- Text readability gradient: Dark gradient overlay (rgba(0,0,0,0.3) to transparent) on photos where text appears
+- Border: 1px solid rgba(0,0,0,0.05) for card separation
+
+SHADOWS & DEPTH:
+- Card shadows: 0px 2px 8px rgba(0,0,0,0.08)
+- Button shadows: 0px 4px 12px rgba(10,132,255,0.25) for primary buttons
+- Elevated elements: 0px 8px 24px rgba(0,0,0,0.12)
+
+═══════════════════════════════════════════════════════════════════════════════
+SCREEN DESIGNS (iPhone 15 Pro format, 9:19.5 ratio)
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 1: WELCOME
+───────────────────────────────────────────────────────────────────────────────
+
+Layout Breakdown:
+┌─────────────────────────────────────────────┐
+│                                             │
+│  [Large photo: Woman studying with coffee   │
+│   in warm cafe scene - golden hour light,   │
+│   laptop, notebook, cozy atmosphere]        │
+│                                             │
+│   Dark gradient overlay at bottom           │
+│                                             │
+│   "No Pressure Flashcards"                  │
+│   (34pt Bold, white text on photo)          │
+│                                             │
+│   "Learn at your own pace"                  │
+│   (17pt Regular, white with 80% opacity)    │
+│                                             │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │      Get Started                      │  │
+│  │   (Bright blue #0A84FF button)       │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Photo Specs:
+- Subject: Woman in her 20s-30s studying in modern coffee shop
+- Lighting: Warm, natural window light (golden hour)
+- Mood: Calm, focused, inviting
+- Colors: Warm browns, soft whites, green plants, golden tones
+- Composition: Rule of thirds, shallow depth of field
+- Props: MacBook, coffee cup, notebook, pen, green plants
+
+Text Placement:
+- Title: Centered, 60% from top, white text with subtle shadow
+- Subtitle: Centered, below title with 12pt spacing, white 80% opacity
+- Button: Centered, 80px from bottom, full width minus 48px padding
+
+Button Style:
+- Background: Solid bright blue #0A84FF
+- Text: White, 17pt Semibold
+- Height: 56px
+- Border radius: 16px
+- Shadow: 0px 4px 12px rgba(10,132,255,0.3)
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 2: ONBOARDING STEP 1 - Snap & Learn
+───────────────────────────────────────────────────────────────────────────────
+
+Layout Breakdown:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  [Photo: Eiffel Tower at sunset]      │  │
+│  │                                       │  │
+│  │   Dark gradient at bottom            │  │
+│  │                                       │  │
+│  │   📷 (Camera icon, 60pt, white)      │  │
+│  │                                       │  │
+│  │   "Snap & Learn"                     │  │
+│  │   (28pt Bold, white on photo)        │  │
+│  │                                       │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  "AI creates flashcards from photos,        │
+│   PDFs, or text"                            │
+│  (17pt Regular, #1C1C1E, centered)          │
+│                                             │
+│  ● ○ ○  (Progress dots, 1/3)                │
+│  Blue for active, gray for inactive         │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Photo Card Specs:
+- Size: 90% screen width, 400px height
+- Corner radius: 24px
+- Photo: Iconic landmark (Eiffel Tower, sunset lighting)
+- Overlay gradient: Linear gradient from rgba(0,0,0,0) at top to rgba(0,0,0,0.5) at bottom
+- Shadow: 0px 8px 24px rgba(0,0,0,0.12)
+- Border: 1px solid rgba(0,0,0,0.05)
+
+Icon Style:
+- Camera emoji or SF Symbol camera.fill
+- Size: 60pt
+- Color: White
+- Position: Centered horizontally, 40% from top of card
+- Glow: 0px 4px 16px rgba(255,255,255,0.4)
+
+Description Text:
+- Position: 32px below photo card
+- Width: 85% screen width, centered
+- Line height: 1.4
+- Text align: Center
+
+Progress Dots:
+- Position: Centered, 60px from bottom
+- Dot size: 8px diameter
+- Active dot: #0A84FF
+- Inactive dots: #C7C7CC
+- Spacing: 12px between dots
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 3: ONBOARDING STEP 2 - No Guilt
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  [Photo: Peaceful mountain/forest     │  │
+│  │   scene with misty morning light]     │  │
+│  │                                       │  │
+│  │   Dark gradient at bottom            │  │
+│  │                                       │  │
+│  │   ❤️ (Heart icon, 60pt, coral/pink)  │  │
+│  │                                       │  │
+│  │   "No Guilt, No Burnout"             │  │
+│  │   (28pt Bold, white on photo)        │  │
+│  │                                       │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  "Miss a day? No problem.                   │
+│   No streaks, no pressure."                 │
+│  (17pt Regular, #1C1C1E, centered)          │
+│                                             │
+│  ○ ● ○  (Progress dots, 2/3)                │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Photo Card Specs:
+- Same dimensions as Screen 2
+- Photo: Serene nature scene (mountains with morning mist, forest path, calm lake)
+- Mood: Peaceful, calming, stress-free
+- Colors: Soft greens, blues, white mist, golden morning light
+- Composition: Wide landscape, minimal clutter
+
+Icon:
+- Heart emoji ❤️ or filled heart symbol
+- Color: Coral #FF6B6B or soft pink
+- Same positioning as Screen 2
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 4: ONBOARDING STEP 3 - Smart Repetition
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  [Photo: Study desk from above -      │  │
+│  │   organized books, brain model,       │  │
+│  │   minimal aesthetic]                  │  │
+│  │                                       │  │
+│  │   Dark gradient at bottom            │  │
+│  │                                       │  │
+│  │   🧠 (Brain icon, 60pt, blue)         │  │
+│  │                                       │  │
+│  │   "Smart Repetition"                 │  │
+│  │   (28pt Bold, white on photo)        │  │
+│  │                                       │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  "FSRS algorithm shows cards                │
+│   at optimal time"                          │
+│  (17pt Regular, #1C1C1E, centered)          │
+│                                             │
+│  ○ ○ ●  (Progress dots, 3/3)                │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Photo Specs:
+- Photo: Flat lay of organized study materials (brain imagery, books, flashcards)
+- Angle: Top-down view
+- Style: Clean, minimal, well-organized
+- Colors: White desk, colorful book spines, blue accents
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 5: GOAL SELECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  "What's your goal?"                        │
+│  (28pt Bold, #1C1C1E, centered)             │
+│                                             │
+│  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   🎓            │  │   🗣️            │  │
+│  │                 │  │                 │  │
+│  │ Ace my exams    │  │ Learn a         │  │
+│  │                 │  │ language        │  │
+│  └─────────────────┘  └─────────────────┘  │
+│  (Blue border if selected)                  │
+│                                             │
+│  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   💼            │  │   🧠            │  │
+│  │                 │  │                 │  │
+│  │ Professional    │  │ General         │  │
+│  │ growth          │  │ knowledge       │  │
+│  └─────────────────┘  └─────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Goal Card Specs:
+- Size: 48% screen width, 140px height
+- Background: White
+- Border: 2px solid #E5E5EA (normal state)
+- Border: 2px solid #0A84FF (selected state)
+- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
+- Corner radius: 20px
+- Padding: 20px
+
+Card Content:
+- Emoji: 40pt, centered, 24px from top
+- Text: 17pt Semibold, #1C1C1E, centered, 16px below emoji
+- Selected state: Slight blue tint background rgba(10,132,255,0.05)
+
+Grid:
+- 2 columns, 2 rows
+- Gap: 16px horizontal, 20px vertical
+- Container padding: 24px left/right
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 6: TIME SELECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  "How much time per day?"                   │
+│  (28pt Bold, #1C1C1E, centered)             │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  ⚡  5 min                              │  │
+│  │      Quick learner                    │  │
+│  │                                    › │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  ☕  15 min                             │  │
+│  │      Steady pace                      │  │
+│  │                                    › │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  📚  30 min                             │  │
+│  │      Dedicated                        │  │
+│  │                                    › │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │  🚀  60 min                             │  │
+│  │      Power user                       │  │
+│  │                                    › │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Time Card Specs:
+- Width: 90% screen width
+- Height: 72px
+- Background: White
+- Border: 2px solid #E5E5EA (normal)
+- Border: 2px solid #0A84FF (selected)
+- Corner radius: 16px
+- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
+- Spacing: 12px between cards
+
+Card Content Layout:
+- Emoji: 32pt, left aligned, 20px from left edge
+- Time duration: 17pt Bold, #1C1C1E, 16px to right of emoji
+- Subtitle: 15pt Regular, #8E8E93, below time text with 4px spacing
+- Chevron: 17pt, #C7C7CC, right aligned, 20px from right edge
+
+Selected State:
+- Blue border #0A84FF
+- Blue tint background rgba(10,132,255,0.05)
+- Chevron changes to #0A84FF
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 7: INTERESTS
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  "What interests you?"                      │
+│  (28pt Bold, #1C1C1E, centered)             │
+│                                             │
+│  "Select all that apply"                    │
+│  (15pt Regular, #8E8E93, centered)          │
+│                                             │
+│  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐       │
+│  │Science│ │History│ │Languages│ │Math│     │
+│  └──────┘ └──────┘ └──────┘ └──────┘       │
+│                                             │
+│  ┌──────┐ ┌──────┐ ┌──────┐                │
+│  │Medicine│ │ Law │ │ Art │                 │
+│  └──────┘ └──────┘ └──────┘                │
+│                                             │
+│  ┌──────┐ ┌──────┐ ┌──────┐                │
+│  │ Tech │ │Business│ │Music│                │
+│  └──────┘ └──────┘ └──────┘                │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Chip Specs (Pill Buttons):
+- Height: 40px
+- Padding: 16px horizontal
+- Background: White (unselected)
+- Background: #0A84FF (selected)
+- Border: 1px solid #E5E5EA (unselected)
+- Border: none (selected)
+- Corner radius: 20px (full pill shape)
+- Shadow: 0px 1px 4px rgba(0,0,0,0.06)
+
+Chip Text:
+- Font: 15pt Semibold
+- Color: #1C1C1E (unselected)
+- Color: White (selected)
+
+Layout:
+- Wrapped flow (flex-wrap)
+- Gap: 12px horizontal, 12px vertical
+- Container padding: 24px
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 8: SIGN UP
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│              White background               │
+│                                             │
+│  "Create your account"                      │
+│  (28pt Bold, #1C1C1E, centered)             │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │   🍎  Continue with Apple             │  │
+│  │   (Black background, white text)      │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  ┌───────────────────────────────────────┐  │
+│  │   G   Continue with Google            │  │
+│  │   (White bg, gray border, dark text)  │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  Continue with Email                        │
+│  (Blue text link, 17pt Semibold)            │
+│                                             │
+│                                             │
+│  Terms of Service  |  Privacy Policy        │
+│  (12pt Regular, #C7C7CC)                    │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Apple Button:
+- Background: #000000 (black)
+- Text: White, 17pt Semibold
+- Icon: Apple logo (SF Symbol), white
+- Height: 56px
+- Corner radius: 16px
+- Shadow: 0px 2px 8px rgba(0,0,0,0.15)
+
+Google Button:
+- Background: White
+- Text: #1C1C1E, 17pt Semibold
+- Icon: Google "G" logo (multicolor)
+- Height: 56px
+- Border: 2px solid #E5E5EA
+- Corner radius: 16px
+- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
+
+Email Link:
+- Text only, no button
+- Color: #0A84FF
+- Position: 24px below Google button
+- Centered
+
+Footer Links:
+- Position: 24px from bottom
+- Centered, separated by " | "
+- Tappable area: 44x44pt minimum
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 9: HOME TAB
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│ [Status bar]                                │
+│                                             │
+│ "Good morning, Alex"                        │
+│ (28pt Bold, #1C1C1E)                        │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  + Create New Cards                   │  │
+│ │  (Blue #0A84FF, 17pt Semibold)       │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Mount Fuji at sunrise]        │  │
+│ │                                       │  │
+│ │  "Japanese Basics"                    │  │
+│ │  (White text on photo gradient)       │  │
+│ │                                       │  │
+│ │  ◯ Progress ring: 0/20 cards          │  │
+│ │                                       │  │
+│ │  [Start Learning button - blue]       │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ "Due Today" (17pt Semibold)                 │
+│                                             │
+│ ┌─────┐ ┌─────┐ ┌─────┐  [Horizontal      │
+│ │Photo│ │Photo│ │Photo│   scroll]          │
+│ │Deck │ │Deck │ │Deck │                    │
+│ └─────┘ └─────┘ └─────┘                    │
+│                                             │
+│ ┌─────────────────────────────────────────┐│
+│ │  🏠 Home   📚 Library   🔍 Explore      ││
+│ │  (Tab bar - 3 icons)                    ││
+│ └─────────────────────────────────────────┘│
+└─────────────────────────────────────────────┘
+
+Create Button:
+- Width: 90% screen width
+- Height: 64px
+- Background: #0A84FF
+- Text: White, 17pt Semibold
+- Icon: + symbol, 24pt, left of text
+- Corner radius: 16px
+- Shadow: 0px 4px 12px rgba(10,132,255,0.3)
+- Position: 20px below greeting
+
+Featured Deck Card (Large):
+- Width: 90% screen width
+- Height: 320px
+- Photo: Landscape landmark (Mount Fuji, scenic view)
+- Corner radius: 24px
+- Shadow: 0px 8px 24px rgba(0,0,0,0.12)
+
+Deck Card Content:
+- Background gradient overlay: rgba(0,0,0,0.4) bottom 50%
+- Deck name: 22pt Bold, white, 24px from bottom
+- Progress ring: 120px diameter, blue stroke, centered
+- Card count: 15pt Regular, white, centered in ring
+- Start button: 48px height, white bg, blue text, bottom 20px
+
+Due Today Cards (Small):
+- Width: 160px
+- Height: 200px
+- Photo: Thematic (beach for biology, architecture for history, etc.)
+- Corner radius: 16px
+- Shadow: 0px 4px 12px rgba(0,0,0,0.1)
+- Spacing: 12px gap
+- Scrollable horizontally
+
+Tab Bar:
+- Height: 80px (includes safe area)
+- Background: White with blur effect
+- Border top: 1px solid rgba(0,0,0,0.05)
+- Icons: 24pt, #0A84FF when selected, #8E8E93 when inactive
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 10: CREATE OPTIONS (Modal from Home)
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│                                             │
+│ "How will you capture today?"               │
+│ (28pt Bold, #1C1C1E, centered)              │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Notebook with handwritten     │  │
+│ │  notes, pen, study materials]         │  │
+│ │                                       │  │
+│ │  Gradient overlay at bottom          │  │
+│ │                                       │  │
+│ │  📷 (60pt, white)                      │  │
+│ │                                       │  │
+│ │  "Camera"                             │  │
+│ │  Snap notes or textbook               │  │
+│ │  (White text on gradient)             │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: PDF documents, papers]        │  │
+│ │                                       │  │
+│ │  📄 (60pt, white)                      │  │
+│ │                                       │  │
+│ │  "PDF"                                │  │
+│ │  Import documents                     │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Laptop, typing, text]         │  │
+│ │                                       │  │
+│ │  ✍️ (60pt, white)                      │  │
+│ │                                       │  │
+│ │  "Text"                               │  │
+│ │  Paste or type                        │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ Manual Entry                                │
+│ (Blue link, 17pt Semibold, centered)        │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Option Card Specs:
+- Width: 90% screen width
+- Height: 180px
+- Photo: Contextual (camera gear, documents, laptop)
+- Corner radius: 20px
+- Gradient overlay: Linear gradient rgba(0,0,0,0) to rgba(0,0,0,0.6) bottom 60%
+- Shadow: 0px 6px 16px rgba(0,0,0,0.1)
+- Spacing: 16px between cards
+
+Card Content:
+- Icon: 60pt emoji, centered horizontally, 40% from top
+- Title: 22pt Bold, white, centered, 16px below icon
+- Subtitle: 15pt Regular, white 80% opacity, centered, 8px below title
+
+Manual Entry Link:
+- Position: 24px below last card
+- Color: #0A84FF
+- Underline on tap
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 11: LIBRARY TAB
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│ [Status bar]                                │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  🔍 Search decks...                   │  │
+│ │  (Search bar, white bg, gray border)  │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ [All] [Recent] [Favorites]                  │
+│ (Filter pills)                              │
+│                                             │
+│ ┌───────────┐  ┌───────────┐               │
+│ │[Photo:    │  │[Photo:    │               │
+│ │ Tropical  │  │ Historical│               │
+│ │ beach]    │  │ building] │               │
+│ │           │  │           │               │
+│ │Tropical   │  │Indian     │               │
+│ │Biology    │  │History    │               │
+│ │           │  │           │               │
+│ │○ 12/24    │  │○ 8/16     │               │
+│ └───────────┘  └───────────┘               │
+│                                             │
+│ ┌───────────┐  ┌───────────┐               │
+│ │[Photo:    │  │[Photo:    │               │
+│ │ Math      │  │ Spanish   │               │
+│ │ symbols]  │  │ landscape]│               │
+│ │           │  │           │               │
+│ │Calculus   │  │Spanish    │               │
+│ │101        │  │Basics     │               │
+│ │           │  │           │               │
+│ │○ 20/30    │  │○ 5/10     │               │
+│ └───────────┘  └───────────┘               │
+│                                             │
+│ [More decks scrollable...]                  │
+│                                             │
+│ ┌─────────────────────────────────────────┐│
+│ │  🏠 Home   📚 Library   🔍 Explore      ││
+│ └─────────────────────────────────────────┘│
+└─────────────────────────────────────────────┘
+
+Search Bar:
+- Width: 90% screen width
+- Height: 44px
+- Background: #F8F9FA
+- Border: 1px solid #E5E5EA
+- Corner radius: 12px
+- Placeholder: #8E8E93
+- Icon: Magnifying glass, left, 16px padding
+
+Filter Pills:
+- Height: 32px
+- Padding: 12px horizontal
+- Background: #F8F9FA (inactive), #0A84FF (active)
+- Text: #1C1C1E (inactive), White (active)
+- Corner radius: 16px
+- Spacing: 8px gap
+
+Deck Cards (Grid):
+- Columns: 2
+- Card width: 48% screen width
+- Card height: 200px
+- Gap: 12px
+- Photo: Thematic to deck content
+
+Deck Card Content:
+- Photo: Full card background
+- Gradient overlay: rgba(0,0,0,0.3) bottom 50%
+- Deck name: 17pt Bold, white, 16px from bottom
+- Progress: 13pt Regular, white 80%, 12px from bottom
+- Progress ring: Small, 32px, top right corner with 12px padding
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 12: EXPLORE TAB
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│ [Status bar]                                │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  🔍 Search featured decks...          │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ [Popular] [Languages] [Science] [History]   │
+│ (Horizontal scroll of category chips)       │
+│                                             │
+│ "Featured Decks"                            │
+│ (22pt Bold, #1C1C1E)                        │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Kyoto street, traditional]    │  │
+│ │                                       │  │
+│ │ "Japanese Culture"                    │  │
+│ │ by @studywithme • 1.2k downloads      │  │
+│ │                                       │  │
+│ │ [+ Add to Library]                    │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Architecture, buildings]      │  │
+│ │                                       │  │
+│ │ "World Architecture"                  │  │
+│ │ by @archi_learn • 890 downloads       │  │
+│ │                                       │  │
+│ │ [+ Add to Library]                    │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ [More featured decks...]                    │
+│                                             │
+│ ┌─────────────────────────────────────────┐│
+│ │  🏠 Home   📚 Library   🔍 Explore      ││
+│ └─────────────────────────────────────────┘│
+└─────────────────────────────────────────────┘
+
+Category Chips:
+- Same style as filter pills
+- Horizontal scrollable
+- Auto-width based on text
+
+Featured Deck Cards:
+- Width: 90% screen width
+- Height: 280px
+- Photo: High quality, relevant to deck topic
+- Corner radius: 20px
+- Shadow: 0px 8px 20px rgba(0,0,0,0.1)
+- Spacing: 20px vertical
+
+Card Content Layout:
+- Photo: Top 65%
+- White info section: Bottom 35%
+- Gradient transition between photo and info
+
+Info Section:
+- Deck title: 20pt Bold, #1C1C1E, 16px padding
+- Author & stats: 13pt Regular, #8E8E93, 8px below title
+- Add button: 40px height, blue border, blue text, bottom 12px
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 13: STUDY SETUP
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Landmark - e.g. Colosseum]    │  │
+│ │                                       │  │
+│ │  Gradient overlay                     │  │
+│ │                                       │  │
+│ │  🗺️ (Deck icon, 60pt, white)          │  │
+│ │                                       │  │
+│ │  "World Landmarks"                    │  │
+│ │  (22pt Bold, white)                   │  │
+│ │                                       │  │
+│ │  "24 cards to review"                 │  │
+│ │  (15pt Regular, white 80%)            │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ "Study Mode"                                │
+│ (17pt Semibold, #1C1C1E)                    │
+│                                             │
+│ ┌─────┐  ┌─────┐  ┌─────┐                  │
+│ │ 🎴  │  │ ❓  │  │ ✍️  │                   │
+│ │Flash│  │Quiz │  │Write│                  │
+│ │cards│  │     │  │     │                  │
+│ └─────┘  └─────┘  └─────┘                  │
+│ (Selected has blue border)                  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │     Start Session                     │  │
+│ │     (Blue button, 56px height)        │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Deck Preview Card:
+- Width: 90% screen width
+- Height: 260px
+- Photo: Thematic landmark or subject
+- Corner radius: 24px
+- Gradient: rgba(0,0,0,0.4) bottom 60%
+
+Mode Selector Cards:
+- Width: 30% screen width
+- Height: 100px
+- Background: White
+- Border: 2px solid #E5E5EA (inactive)
+- Border: 2px solid #0A84FF (selected)
+- Corner radius: 16px
+- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
+
+Mode Card Content:
+- Emoji: 40pt, centered, top 20px
+- Label: 15pt Semibold, #1C1C1E, centered, below emoji
+
+Start Button:
+- Same style as primary buttons on earlier screens
+- Position: Fixed to bottom with 60px padding
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 14: FLASHCARD MODE
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│ ━━━━━━━━━━━━━━━━━━━━━━━━  (Progress bar)   │
+│ 3 of 20 (Caption, top right)                │
+│                                             │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo background: Eiffel Tower]      │  │
+│ │                                       │  │
+│ │  Dark gradient overlay                │  │
+│ │                                       │  │
+│ │  "Bonjour"                            │  │
+│ │  (34pt Bold, white, centered)         │  │
+│ │                                       │  │
+│ │  [Tap to flip indicator]              │  │
+│ │  (Small text/icon at bottom)          │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ (When flipped shows:)                       │
+│ "Hello / Good day"                          │
+│ (28pt Regular, white, centered)             │
+│                                             │
+│                                             │
+│ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐            │
+│ │Again│ │Hard │ │Good │ │Easy │            │
+│ │     │ │     │ │     │ │     │            │
+│ └─────┘ └─────┘ └─────┘ └─────┘            │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Progress Bar:
+- Width: Full width
+- Height: 4px
+- Background: #E5E5EA
+- Fill: #0A84FF
+- Position: Top edge
+
+Flashcard:
+- Width: 90% screen width
+- Height: 400px
+- Photo background: Contextual (Eiffel Tower for French, Mount Fuji for Japanese, etc.)
+- Corner radius: 24px
+- Shadow: 0px 12px 32px rgba(0,0,0,0.15)
+- Gradient overlay: rgba(0,0,0,0.5) for text readability
+
+Card Text:
+- Front: 34pt Bold, white, centered
+- Back: 28pt Regular, white, centered
+- Flip indicator: 13pt Regular, white 60%, bottom 20px
+
+Rating Buttons:
+- Width: 22% screen width each
+- Height: 64px
+- Background: White
+- Border: 2px solid corresponding color
+- Corner radius: 12px
+- Shadow: 0px 2px 8px rgba(0,0,0,0.08)
+
+Button Colors:
+- Again: Border #FF6B6B (coral/red)
+- Hard: Border #FF9F0A (orange)
+- Good: Border #0A84FF (blue)
+- Easy: Border #34C759 (green)
+
+Button Text:
+- 15pt Semibold
+- Color matches border color
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 15: QUIZ MODE
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│ ━━━━━━━━━━━━━━━━━━━━━━━━  (Progress bar)   │
+│ Question 5 of 20        Score: 4/5          │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [Photo: Eiffel Tower]                 │  │
+│ │                                       │  │
+│ │ "What is the capital                  │  │
+│ │  of France?"                          │  │
+│ │ (22pt Bold, white, centered)          │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  Paris                           ✓    │  │
+│ │  (Selected, green border & checkmark) │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  London                               │  │
+│ │  (White card, gray border)            │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  Berlin                               │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │  Madrid                               │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │     Next                              │  │
+│ │     (Blue button)                     │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Question Card:
+- Width: 90% screen width
+- Height: 180px
+- Photo: Contextual to question
+- Gradient overlay: rgba(0,0,0,0.5)
+- Corner radius: 20px
+
+Answer Cards:
+- Width: 90% screen width
+- Height: 64px
+- Background: White
+- Border: 2px solid #E5E5EA (normal)
+- Border: 2px solid #34C759 (correct)
+- Border: 2px solid #FF6B6B (incorrect)
+- Corner radius: 16px
+- Spacing: 12px
+
+Answer States:
+- Normal: White bg, gray border
+- Selected (before reveal): Blue border #0A84FF, blue tint bg
+- Correct (after reveal): Green border, green checkmark icon right
+- Incorrect (after reveal): Red border, red X icon right
+
+Answer Text:
+- 17pt Semibold, #1C1C1E
+
+Next Button:
+- Appears after answer selected
+- Same style as primary buttons
+- Position: 24px below last answer
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 16: SESSION COMPLETE
+───────────────────────────────────────────────────────────────────────────────
+
+Layout:
+┌─────────────────────────────────────────────┐
+│                                             │
+│ [Photo: Mountain peak at sunset,            │
+│  full screen background]                    │
+│                                             │
+│ Gradient overlay: rgba(0,0,0,0.6) full      │
+│                                             │
+│                                             │
+│    "Great job, Alex!"                       │
+│    (34pt Bold, white, centered)             │
+│                                             │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │ [White frosted glass card]            │  │
+│ │                                       │  │
+│ │  25 cards reviewed                    │  │
+│ │  (22pt Bold, #1C1C1E, centered)       │  │
+│ │                                       │  │
+│ │  ─────────────────                    │  │
+│ │                                       │  │
+│ │  15 minutes focused                   │  │
+│ │  (17pt Regular, #8E8E93)              │  │
+│ │                                       │  │
+│ │  90% accuracy                         │  │
+│ │  (17pt Regular, #8E8E93)              │  │
+│ │                                       │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+│ ┌───────────────────────────────────────┐  │
+│ │     Return to Home                    │  │
+│ │     (Blue button)                     │  │
+│ └───────────────────────────────────────┘  │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Background Photo:
+- Full screen (edge to edge)
+- Subject: Inspirational nature (mountain peak, sunrise/sunset, achievement)
+- Lighting: Dramatic, golden hour
+- Mood: Accomplishment, success
+- Overlay: Dark gradient rgba(0,0,0,0.6) for contrast
+
+Stats Card:
+- Width: 85% screen width
+- Padding: 32px
+- Background: White with 85% opacity (frosted glass effect)
+- Backdrop blur: 20px
+- Corner radius: 24px
+- Shadow: 0px 16px 48px rgba(0,0,0,0.2)
+
+Stats Layout:
+- Primary stat (cards reviewed): 22pt Bold, #1C1C1E, centered
+- Divider: 1px line, #E5E5EA, 24px vertical spacing
+- Secondary stats: 17pt Regular, #8E8E93, centered, 16px spacing
+
+Return Button:
+- Same style as primary buttons
+- Position: 32px below stats card
+
+═══════════════════════════════════════════════════════════════════════════════
+FINAL NOTES
+═══════════════════════════════════════════════════════════════════════════════
+
+PHOTO SOURCING GUIDELINES:
+- Use high quality stock photos (Unsplash, Pexels quality)
+- Consistent color grading across all photos (warm, natural tones)
+- Professional composition (rule of thirds, balanced)
+- Clear subjects, minimal clutter
+- Aspirational but realistic
+- Diverse representation in people photos
+
+ACCESSIBILITY:
+- Minimum touch target: 44x44pt
+- Color contrast ratio: 4.5:1 for text
+- Text on photos must have sufficient gradient overlay for readability
+- Support Dynamic Type for all text
+
+CONSISTENCY:
+- Same corner radius for similar element types
+- Consistent spacing grid (8pt base)
+- Consistent shadow depths for elevation hierarchy
+- Unified photo treatment (same overlay opacity, same gradient style)
+
+ANIMATION (if supported):
+- Card flips: 0.3s spring animation
+- Button taps: 0.15s scale down to 0.95
+- Screen transitions: 0.35s ease-in-out slide
+- Progress updates: 0.5s ease-out
+
+This prompt is ready for Google Stitch or similar design tools. All measurements, colors, and specifications are production-ready.
