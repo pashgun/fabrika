@@ -58,5 +58,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to scan your notes and textbooks for instant flashcard generation</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need photo library access to import images and create flashcards from them</string>
 </dict>
 </plist>

@@ -105,6 +105,11 @@ struct QuizModeView: View {
 
         opts.append(contentsOf: wrongAnswers)
 
+        // Fill up to 4 options if needed (for decks with < 4 cards)
+        while opts.count < 4 {
+            opts.append("Option \(opts.count + 1)")
+        }
+
         // Shuffle
         options = opts.shuffled()
     }
