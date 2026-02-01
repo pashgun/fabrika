@@ -25,13 +25,13 @@ SCREENS TO DESIGN (iPhone 15 Pro format, 9:19.5 ratio):
 
 8. SIGN UP: "Create your account" title, 3 buttons stacked: "Continue with Apple" (black), "Continue with Google" (white border), "Continue with Email" (text link)
 
-9. HOME TAB: "Good morning, Alex" greeting, large circular progress ring (0/20 cards, purple gradient), "Start Learning" button, "Due Today" section with horizontal scroll of 3 deck preview cards, bottom tab bar with 5 icons
+9. HOME TAB: "Good morning, Alex" greeting, large purple "Create New Cards" button with + icon, large circular progress ring (0/20 cards, purple gradient), "Start Learning" button, "Due Today" section with horizontal scroll of 3 deck preview cards, bottom tab bar with 3 icons (Home selected)
 
-10. CREATE TAB: "Create Flashcards" title, 3 large vertical glass cards with large emojis: 📷 Camera "Snap notes or textbook", 📄 PDF "Import documents", ✍️ Text "Paste or type"
+10. CREATE OPTIONS (from Home): "How will you capture today?" title, 3 large vertical glass cards with large emojis: 📷 Camera "Snap notes or textbook", 📄 PDF "Import documents", ✍️ Text "Paste or type", "Manual Entry" link at bottom
 
-11. LIBRARY TAB: Frosted glass search bar, filter pills (All/Recent/Favorites), 2-column grid of 6 deck cards with icons and circular progress rings, tab bar
+11. LIBRARY TAB: Frosted glass search bar, filter pills (All/Recent/Favorites), 2-column grid of 6 deck cards with icons and circular progress rings, bottom tab bar with 3 icons (Library selected)
 
-12. EXPLORE TAB: Search bar, horizontal scroll of category chips, "Featured Decks" section with vertical list of glass cards showing deck previews, tab bar
+12. EXPLORE TAB: Search bar, horizontal scroll of category chips, "Featured Decks" section with vertical list of glass cards showing deck previews, bottom tab bar with 3 icons (Explore selected)
 
 13. STUDY SETUP: Large centered deck preview card (icon 80pt, "24 cards to review"), 3 horizontal mode selector cards: 🎴 Flashcards (selected, purple border), ❓ Quiz, ✍️ Write, "Start Session" button
 
@@ -42,6 +42,7 @@ SCREENS TO DESIGN (iPhone 15 Pro format, 9:19.5 ratio):
 16. SESSION COMPLETE: Confetti animation, large glass card with "Great job!" title, 3-column stats grid (20 cards / 85% / 12 min), "Continue" (purple) and "Done" (outline) buttons
 
 REQUIREMENTS:
+- 3 tabs: Home (with create button), Library, Explore
 - All cards and containers use frosted glass, never solid fills
 - Smooth spring animations on transitions
 - Purple (#BF5AF2) for all primary actions and selections
@@ -49,3 +50,4 @@ REQUIREMENTS:
 - Premium, modern, minimalist iOS aesthetic
 - High quality, production-ready design
 - Show all 16 screens as a cohesive flow
+- Create card options accessible from Home tab via prominent button

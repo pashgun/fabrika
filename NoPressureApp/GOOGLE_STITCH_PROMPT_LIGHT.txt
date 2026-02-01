@@ -34,13 +34,13 @@ SCREENS TO DESIGN (iPhone 15 Pro format, 9:19.5 ratio):
 
 8. SIGN UP: "Create your account" title, white screen, 3 buttons: "Continue with Apple" (black), "Continue with Google" (white with border), "Continue with Email" (blue text link)
 
-9. HOME TAB: "Good morning, Alex" greeting, large card showing Mount Fuji or nature photo with "Japanese Basics" deck overlay, circular progress ring (0/20 cards, blue), "Start Learning" button, "Due Today" section with horizontal scroll of 3 photo-based deck cards, tab bar at bottom
+9. HOME TAB: "Good morning, Alex" greeting, large blue "Create New Cards" button with + icon, large card showing Mount Fuji or nature photo with "Japanese Basics" deck overlay, circular progress ring (0/20 cards, blue), "Start Learning" button, "Due Today" section with horizontal scroll of 3 photo-based deck cards, bottom tab bar with 3 icons (Home selected)
 
-10. CREATE TAB: "Create Flashcards" title, 3 large cards with photo backgrounds: 📷 Camera card with photo of notes/books, 📄 PDF card with document imagery, ✍️ Text card with writing scene, each has icon and descriptive text overlay
+10. CREATE OPTIONS (from Home): "How will you capture today?" title, 3 large cards with photo backgrounds: 📷 Camera card with photo of notes/books, 📄 PDF card with document imagery, ✍️ Text card with writing scene, each has icon and descriptive text overlay, "Manual Entry" link at bottom
 
-11. LIBRARY TAB: White background, search bar at top, filter pills (All/Recent/Favorites), 2-column grid of deck cards - each card has beautiful photo background (tropical beach for "Tropical Biology", historical building for "Indian History", etc.) with title overlay and progress indicator
+11. LIBRARY TAB: White background, search bar at top, filter pills (All/Recent/Favorites), 2-column grid of deck cards - each card has beautiful photo background (tropical beach for "Tropical Biology", historical building for "Indian History", etc.) with title overlay and progress indicator, bottom tab bar with 3 icons (Library selected)
 
-12. EXPLORE TAB: Search bar, horizontal scroll of category chips, "Featured Decks" with vertical list of photo cards showing various topics (Kyoto streets, architecture, etc.) with titles and metadata overlaid
+12. EXPLORE TAB: Search bar, horizontal scroll of category chips, "Featured Decks" with vertical list of photo cards showing various topics (Kyoto streets, architecture, etc.) with titles and metadata overlaid, bottom tab bar with 3 icons (Explore selected)
 
 13. STUDY SETUP: Large centered deck card with beautiful photo (e.g. landmark), deck icon and "24 cards to review" text, 3 horizontal mode selector cards (white): 🎴 Flashcards (selected, blue border), ❓ Quiz, ✍️ Write, "Start Session" blue button
 
@@ -51,6 +51,7 @@ SCREENS TO DESIGN (iPhone 15 Pro format, 9:19.5 ratio):
 16. SESSION COMPLETE: Mountain/nature photo background with gradient overlay, "Great job, Alex!" title in white text on photo, white glass card with stats: "25 cards reviewed", "15 minutes focused", "90% accuracy", blue "Return to Home" button, "Next" button
 
 REQUIREMENTS:
+- 3 tabs: Home (with create button), Library, Explore
 - Light, airy, clean design with lots of white space
 - Beautiful lifestyle photography as card backgrounds
 - Bright blue #0A84FF for primary actions
@@ -60,3 +61,4 @@ REQUIREMENTS:
 - Encouraging, positive vibes with beautiful imagery
 - High quality, production-ready design
 - Consistent photo style across all screens (warm, inviting, professional)
+- Create card options accessible from Home tab via prominent button
